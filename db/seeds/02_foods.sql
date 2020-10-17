@@ -1,3 +1,3 @@
-INSERT INTO foods (food_picture_url, title, price_cents, type) VALUES (1, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thedailymeal.com%2Feat%2Fbest-pasta-dish-every-state&psig=AOvVaw188iznKpiPBlvxu4IVnVbO&ust=1603034658414000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjfyc73u-wCFQAAAAAdAAAAABAD', 'Spaghetti Bolonese', 1499, 'Main'),
-(2, 'https://thumbor.thedailymeal.com/WZGzKREo6uhaR9SaEdlw8LR4tV8=/870x565/https://www.thedailymeal.com/sites/default/files/2019/04/01/bestpasta-main-istock_crop.jpg', 'Frutti di Mare', 1699, 'Main'),
-(3, 'https://www.skinnytaste.com/wp-content/uploads/2019/10/Spaghetti-Carbonara-6.jpg', 'Carbonara', 1599, 'Main');
+INSERT INTO foods (food_picture_url, title, price_cents, type) VALUES ('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thedailymeal.com%2Feat%2Fbest-pasta-dish-every-state&psig=AOvVaw188iznKpiPBlvxu4IVnVbO&ust=1603034658414000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjfyc73u-wCFQAAAAAdAAAAABAD', 'Spaghetti Bolonese', 1499, 'Main'),
+('https://thumbor.thedailymeal.com/WZGzKREo6uhaR9SaEdlw8LR4tV8=/870x565/https://www.thedailymeal.com/sites/default/files/2019/04/01/bestpasta-main-istock_crop.jpg', 'Frutti di Mare', 1699, 'Main'),
+('https://www.skinnytaste.com/wp-content/uploads/2019/10/Spaghetti-Carbonara-6.jpg', 'Carbonara', 1599, 'Main');
