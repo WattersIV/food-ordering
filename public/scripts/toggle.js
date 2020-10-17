@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $("#takeout").click(function() {
-    $(".takeout-reg").toggle();
+    $(".takeout-reg").slideDown("slow");
   });
   $("#delivery").click(function() {
-    $(".delivery-reg").toggle();
+    $(".delivery-reg").slideDown("slow");
   });
 });
