@@ -1,12 +1,17 @@
+const { getAllFoods } = require('../../server/database');
+
 $(document).ready(function(){
   loadFoods();
 })
 
-const createFoodElement = function(foodData) {
+const foodsData = getAllFoods();
+
+const createFoodElement = function(foodsData) {
+
   const $food = $(` <article class="food-container">
-           <img class="food-picture" src="${foods.food_picture_url}"/>
-           <p class="food-name">${foods.title}</p>
-           <p class="food-price">${foods.price_cents}</p>
+           <img class="food-picture" src="${foodsData.food_picture_url}"/>
+           <p class="food-name">${foodsData.title}</p>
+           <p class="food-price">${foodsData.price_cents}</p>
             <button type="button" class="add-menu-btn"> + </button>
         </article>`);
         return $food;
@@ -23,7 +28,5 @@ const renderFoods = function (foods) {
 
 const loadFoods = function () {
   $.ajax('/order', { method: 'GET' })
-  .then(function(data) {
-    renderFoods(data);
-  });
+  .then(renderFoods(foodsData));
 };
