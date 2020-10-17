@@ -30,3 +30,19 @@ const loadFoods = function () {
   $.ajax('/order', { method: 'GET' })
   .then(renderFoods(foodsData));
 };
+
+const addFoodToList = function (foodsData) {
+  const $foodItem = $(` <ol>
+            <li>Item:${foodsData.title}</li>
+            <li>Price:${foodsData.price_cents} Qty:</li>
+          </ol>`);
+          return $foodItem;
+}
+
+const renderFoodToList = function () {
+  const $container = $('#order-list');
+  $(".add-menu-btn").on("click", function (){
+    $container.append(addFoodToList());
+    })
+}
+
