@@ -54,6 +54,15 @@ app.get("/login", (req, res) => {
   res.render("admin_login")
 });
 
+app.get("/admin", (req, res) => {
+  res.render("admin")
+});
+
+app.post("/login", (req, res) => {
+  res.redirect("/admin")
+})
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
