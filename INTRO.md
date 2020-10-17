@@ -45,8 +45,8 @@ CONFIRMATION/PAYMENT
 - POST("/order/:id")
 
 ## Header & Footer 
-[] Build header template 
-[] Build footer template 
+[x] Build header template 
+[x] Build footer template 
 
 ## Home Page 
 [] Route to homepage 
