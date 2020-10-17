@@ -58,7 +58,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/order", (req, res) => {
-  res.render("order.ejs");
+  res.render("order");
 });
 
 

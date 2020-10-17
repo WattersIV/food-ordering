@@ -1,6 +1,6 @@
-.restaurant_name {
-  display: flex;
-  justify-content: center;
-  background-color: pink;
-  font-size: 50px;
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+span {
+  color: $primary-color;
 }
