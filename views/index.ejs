@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/index.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -17,8 +18,23 @@
       <button>Takeout</button>
       <button>Delivery</button>
     </div>
-  </body>
-  <footer>
+    <form>
+      <div class="takeout-reg">
+        <h1>Registration for Takeout</h1>
+        <p>Please fill in the required information below.</p>
+        <hr>
 
-  </footer>
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" id="name" required><br>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter email" name="email" id="email" required><br>
+
+        <label for="phone"><b>Phone Number</b></label>
+        <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
+        <hr>
+        <button type="submit" class="registerbtn">Register</button>
+      </div>
+    </form>
+  </body>
 </html>
