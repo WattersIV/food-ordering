@@ -33,14 +33,9 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-<<<<<<< HEAD
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const adminRoutes = require("./routes/admin");
-=======
-const usersRoutes = require("../food-ordering/routes/users");
-const widgetsRoutes = require("../food-ordering/routes/widgets");
->>>>>>> feature/order
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -68,8 +63,6 @@ app.get("/admin", (req, res) => {
 app.post("/login", (req, res) => {
   res.redirect("/admin")
 })
-
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
