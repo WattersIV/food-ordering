@@ -12,7 +12,7 @@ const morgan     = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const dbParams = require('../food-ordering/lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
@@ -33,9 +33,14 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+<<<<<<< HEAD
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const adminRoutes = require("./routes/admin");
+=======
+const usersRoutes = require("../food-ordering/routes/users");
+const widgetsRoutes = require("../food-ordering/routes/widgets");
+>>>>>>> feature/order
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +56,20 @@ app.use("/admin", adminRoutes(db))
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get("/login", (req, res) => {
+  res.render("admin_login")
+});
+
+app.get("/admin", (req, res) => {
+  res.render("admin")
+});
+
+app.post("/login", (req, res) => {
+  res.redirect("/admin")
+})
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

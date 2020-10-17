@@ -12,24 +12,19 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/toggle.js"></script>
+
   </head>
 
   <body>
-    <%- include('partials/_header') %>
     <main>
-      <div class="menu_items">
+      <div class="menu-items">
         <h3>Menu </h3>
-         <% for(let menu in menuItems) { %>
-        <div>
-          <img class="food_picture1" src="">
-          <p><%= menu %></p>
-          <p><%= menuItems[menu].price %></p>
-          <button type="button" class="add_menu_btn"> + </button>
+          <section id="menu-section">
+          </section>
         </div>
-         <% } %>
       </div>
 
-      <div class="order_summary">
+      <div class="order-summary">
         <h3> Your Order </h3>
 
         <div class="order list">
@@ -40,8 +35,5 @@
 
     </div>
 
-
-
-    <%- include('partials/_footer') %>
   </body>
 </html>
