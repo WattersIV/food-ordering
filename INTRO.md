@@ -49,8 +49,8 @@ CONFIRMATION/PAYMENT
 [x] Build footer template 
 
 ## Home Page 
-[] Route to homepage 
-[] HTML skeleton -- Add templates 
+[x] Route to homepage 
+[x] HTML skeleton -- Add templates 
 [] Create Delivery and Takeout buttons 
 [] Create forms for each of the above 
 [] Create sliding form to appear upon click of the button 
