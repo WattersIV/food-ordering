@@ -12,7 +12,7 @@ const morgan     = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const dbParams = require('../food-ordering/lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
@@ -40,6 +40,7 @@ const orderRoutes = require("./routes/order");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/admin", adminRoutes(db))
 // Note: mount other resources here, using the same pattern above
 
 
@@ -55,5 +56,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/order", (req, res) => {
-  res.render("order.ejs");
+  res.render("order");
 });
