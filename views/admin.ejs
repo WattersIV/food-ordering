@@ -3,9 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Admin Main Page</title>
 </head>
 <body>
-  <%- include('partials/_header') %>
+<header>
+  <nav>
+    <div>
+      <button>Order Status</button>
+      <button>Edit Menu</button>
+      <div>
+      <form action="">
+        <button>Log out</button>
+      </form>
+      </div>
+    </div>
+  </nav>
+</header>
+<main class="Order/Menu">
+  <article class= "orders not yet confirmed">
+    <h2>Orders to be confirmed</h2>
+  </article>
+  <article class="confirmation of order">
+    <h2>Confirm Order</h2>
+    <span>Order ID:</span><br>
+    <input type="number" min="0" step="1"><br>
+    <span>Is this order ready?</span><br>
+    <input id="ready" name="ready" type="radio">
+    <label for="ready">Yes</label><br>
+    <input id="not_ready" name="not_ready" type="radio">
+    <label for="not_ready">No</label><br>
+    <span>In how many minutes will the order be ready?</span><br>
+    <input type="text">
+  </article>
+</main>
 </body>
 </html>
