@@ -1,8 +1,24 @@
 $(document).ready(function() {
-  $("#takeout").click(function() {
-    $(".takeout-reg").slideDown("slow");
-  });
-  $("#delivery").click(function() {
-    $(".delivery-reg").slideDown("slow");
-  });
+  takeoutButtonsHandler();
+  deliveryButtonHandler();
 });
+
+const takeoutButtonsHandler = () => {
+  $("#takeout").click(function() {
+    if ($(".takeout-reg").is(':visible')){
+    $(".takeout-reg").slideUp("slow");
+    } else {
+    $(".takeout-reg").slideDown("slow");
+    }
+  });
+}
+
+const deliveryButtonHandler = () => {
+  $("#delivery").click(function() {
+    if ($(".delivery-reg").is(':visible')){
+    $(".delivery-reg").slideUp("slow");
+    } else {
+    $(".delivery-reg").slideDown("slow");
+    }
+  });
+}
