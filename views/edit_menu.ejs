@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <% for (const food in renderFoods) { %>
+        <% for (const food of items) { %>
           <tr>
             <td><%= food.title %></td>
             <td><input type="button" value="Edit"></td>
