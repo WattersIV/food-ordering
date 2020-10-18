@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Menu</title>
+</head>
+<body>
+  <main style="margin: 1em;">
+    <h3>Edit Menu</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Menu Item</th>
+          <th scope="col">Price</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const food of items) { %>
+          <tr>
+            <td><%= food.title %></td>
+            <td><%= food.price_cents %></td>
+            <td><input type="button" onclick="location.href='http://localhost:8080/admin/edit_menu/<%=food.id%>/edit';" value="Edit" /></td>
+            <td><form method="POST" action="/admin/edit_menu/<%=food.id%>/delete"><button type="submit" value=>Delete</button></form></td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>

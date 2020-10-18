@@ -46,3 +46,15 @@ const renderFoodToList = function () {
     })
 }
 
+
+// function for query to edit menu
+
+// function to delete query item
+
+// function to change unconfirmed order to order
+
+// function for listing out the menu names on the menu editor
+
+// function for calculating total cost
+
+// function for radio boxes- order-ready or order-not ready
