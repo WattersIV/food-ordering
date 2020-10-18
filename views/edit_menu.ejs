@@ -12,6 +12,7 @@
       <thead>
         <tr>
           <th scope="col">Menu Item</th>
+          <th scope="col">Price</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         </tr>
@@ -20,8 +21,9 @@
         <% for (const food of items) { %>
           <tr>
             <td><%= food.title %></td>
-            <td><input type="button" value="Edit"></td>
-            <td><form method=POST action="/admin/<%=food.id%>/delete"><button type="submit" value=>Delete</button></form></td>
+            <td><%= food.price_cents %></td>
+            <td><input type="button" onclick="location.href='http://localhost:8080/admin/edit_menu/<%=food.id%>/edit';" value="Edit" /></td>
+            <td><form method="POST" action="/admin/edit_menu/<%=food.id%>/delete"><button type="submit" value=>Delete</button></form></td>
           </tr>
           <% } %>
       </tbody>
