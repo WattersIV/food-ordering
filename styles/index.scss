@@ -1,26 +1,75 @@
 $font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$primary-color: black;
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font: 100% $font-stack;
   color: $primary-color;
+  background-color: lightpink;
+  height: 100vh;
+
+  section{
+    background-color: lightblue;
+    width: 100%;
+  }
+
+  .options {
+    height: 10vh; //sets max height and width of the buttons
+    width: 100%;
+  }
+
+    #takeout{
+      width: 25vw;
+      background-color: mediumorchid;
+    }
+
+    #delivery{
+      width: 25vw;
+      background-color: limegreen;
+    }
+
+  h1 {
+    display: flex;
+    color: $primary-color;
+    font-size: 3.5em;
+    justify-content: center;
+  }
+
+  .text-box {
+    height: 2rem;
+    display: flex;
+
+  }
+
+  table, th, td {
+    border-collapse: collapse;
+  }
+  hr {                              // These remove black line between text fields
+    border:1px solid black;
+    border-top: none;
+    border-bottom: none;
+
+  }
+
 }
 
 .takeout-reg {
-  display: flex;
   flex-direction: column;
   display: none;
 }
 
 .delivery-reg {
-  display: flex;
   flex-direction: column;
   align-items: space-evenly;
   display:none;
 }
 
 form {
-  width: 50%;
+  display: flex;
+  background-color: lightgrey;
+  width: 90vw;
 }
 
 .options {
