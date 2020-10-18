@@ -25,8 +25,6 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(() => {
-        console.log('NAME HERE!!!', req.body.name)
-
       // Gets users id
       db.query(`
       SELECT users.id
@@ -40,7 +38,14 @@ module.exports = (db) => {
         //saves created users id and name as a cookies
         req.session.id = results.rows[0].id;
         req.session.name = req.body.name;
-        res.redirect("/order")
+        db.query(`
+        SELECT *
+        FROM users
+        WHERE users.id=${req.session.id};`, function (eror, results, fields) {
+          //Sending all user info to ejs
+          console.log('rows 0 !(@#777', results.rows[0], 'NAME', results.rows[0].name)
+          res.render("order", {data: results.rows[0]})
+        });
       }})
     })
   })
