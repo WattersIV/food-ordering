@@ -23,7 +23,7 @@ router.get("/main_page", (req, res) => {
 
 const getFoodItemsByName = () => {
   const queryString = `
-  SELECT title FROM foods;
+  SELECT * FROM foods;
   `;
   return db.query(queryString).then(resolve => resolve.rows)
 };
@@ -34,6 +34,20 @@ router.get("/edit_menu", (req, res) => {
     res.render("edit_menu", {items, page: "edit_menu"})
   })
 });
+
+const deleteFoodItem = (dishId) => {
+  const queryString = `
+  DELETE FROM foods WHERE id = ${dishId}
+  `;
+  db.query(queryString).then(console.log("successfully deleted"))
+
+}
+
+router.post("/:dishId/delete"), (req, res) => {
+  const dishId = req.params.id;
+  deleteFoodItem(dishId)
+  .then(res.redirect("/admin/edit_menu"))
+}
 
 return router
 }

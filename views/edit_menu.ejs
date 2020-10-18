@@ -21,7 +21,7 @@
           <tr>
             <td><%= food.title %></td>
             <td><input type="button" value="Edit"></td>
-            <td><button type="submit" value=>Delete</button></td>
+            <td><form method=POST action="/admin/<%=food.id%>/delete"><button type="submit" value=>Delete</button></form></td>
           </tr>
           <% } %>
       </tbody>
