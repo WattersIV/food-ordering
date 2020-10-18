@@ -20,5 +20,9 @@ router.get("/main_page", (req, res) => {
   res.render("admin")
 });
 
+router.get("/edit_menu", (req, res) => {
+  res.render("edit_menu")
+});
+
 return router
 }
