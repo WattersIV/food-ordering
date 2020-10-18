@@ -15,9 +15,11 @@
     <script type="text/javascript" src="/scripts/toggle.js"></script>
   </head>
   <body>
+    <section>
       <!---Header Partial ---->
-  <%- include('partials/_header') %>
-    <h1>RESTAURANT NAME</h1>
+      <%- include('partials/_header') %>
+      <h1>RESTAURANT NAME</h1>
+    </section>
     <div class="options">
       <button id="takeout">Takeout</button>
       <button id="delivery">Delivery</button>
@@ -25,20 +27,20 @@
   </body>
     <form method="POST" action="/">
       <div class="takeout-reg">
-        <h1>Registration for Takeout</h1>
+        <h3>Registration for Takeout</h3>
         <p>Please fill in the required information below.</p>
         <hr>
         <div class="field">
           <label for="name"><b>Name</b></label>
-          <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
+          <input class="text-box" type="text" placeholder="Enter Name" name="name" id="name" required><br>
         </div>
         <div class="field">
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter email" name="email" id="email" required><br>
+          <input class="text-box" type="text" placeholder="Enter email" name="email" id="email" required><br>
         </div>
         <div class="field">
           <label for="phone"><b>Phone Number</b></label>
-          <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
+          <input class="text-box" type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
           <hr>
         </div>
         <button type="submit" class="registerbtn">Register</button>
@@ -46,30 +48,30 @@
     </form>
     <form method="POST" action="/">
       <div class="delivery-reg">
-        <h1>Registration for Delivery</h1>
+        <h3>Registration for Delivery</h3>
         <p>Please fill in the required information below.</p>
         <hr>
         <div class="field">
           <label for="name"><b>Name</b></label>
-          <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
+          <input class="text-box" type="text" placeholder="Enter Name" name="name" id="name" required><br>
         </div>
         <div class="field">
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter email" name="email" id="email" required><br>
+          <input class="text-box" type="text" placeholder="Enter email" name="email" id="email" required><br>
         </div>
         <div class="field">
           <label for="phone"><b>Phone Number</b></label>
-          <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
-          <hr>
+          <input class="text-box" type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
         </div>
+        <hr>
         <div class="field">
           <label for="address"><b>Address</b></label>
-          <input type="text" placeholder="please enter address" name="address" id="address" required><br>
-          <hr>
+          <input class="text-box" type="text" placeholder="please enter address" name="address" id="address" required><br>
         </div>
+        <hr>
         <div class="field">
           <label for="address"><b>Postal code</b></label>
-          <input type="address" placeholder="please enter postal code" name="postal_code" id="text" required><br>
+          <input class="text-box" type="address" placeholder="please enter postal code" name="postal_code" id="text" required><br>
         </div>
         <button type="submit" class="registerbtn">Register</button>
       </div>
