@@ -27,7 +27,7 @@ router.get("/edit_menu", (req, res) => {
     const queryString = `
     SELECT title FROM foods;
     `;
-    return db.query(queryString).then(resolve => console.log(resolve))
+    return db.query(queryString).then(resolve => console.log(resolve.rows))
   };
 
   const renderFoods = getFoodItemsByName()
