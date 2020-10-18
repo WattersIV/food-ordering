@@ -15,7 +15,8 @@ router.get("/main_page", (req, res) => {
 
 const getFoodItems = () => {
   const queryString = `
-  SELECT * FROM foods;
+  SELECT * FROM foods
+  ORDER BY title;
   `;
   return db.query(queryString).then(resolve => resolve.rows)
 };
