@@ -37,9 +37,11 @@ const diableButton = () => {
   if (deliveryClicked === true) {
     $("#delivery").prop('disabled', true);
     $("#takeout").prop('disabled', false);
+    $(".takeout-reg").slideUp("slow");
   }
-  else if (takeoutClicked === true && deliveryClicked === false) {
+  else if (takeoutClicked === true) {
     $("#takeout").prop('disabled', true);
     $("#delivery").prop('disabled', false);
+    $(".delivery-reg").slideUp("slow");
   }
 }
