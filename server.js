@@ -71,4 +71,6 @@ app.get("/order", (req, res) => {
   res.render("order");
 });
 
-
+app.get("/test", (req, res) => {
+  res.render("confirmation");
+})
