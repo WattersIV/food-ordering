@@ -9,7 +9,7 @@ module.exports = (db) => {
       return db.query(queryString).then(res => res.rows)
   };
 
-  router.get("/order", (req, res) => {
+  router.get("/", (req, res) => {
     getFoodItems()
     .then(items => {
       res.render("/order", { items })
