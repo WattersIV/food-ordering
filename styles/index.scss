@@ -1,15 +1,41 @@
 $font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$primary-color: black;
 
 body {
+  display: flex;
+  border: red dashed;
+  flex-direction: column;
+  align-items: center;
+
   font: 100% $font-stack;
   color: $primary-color;
+
+  h1 {
+    color: $primary-color;
+    align-self: center;
+    font-size: 3.5em;
+  }
+  .field {
+    padding: 15px;
+  }
+
+  table, th, td {
+    border-collapse: collapse;
+  }
+  hr {                              // These remove black line between text fields
+    border:1px solid black;
+    border-top: none;
+    border-bottom: none;
+
+  }
+
 }
 
 .takeout-reg {
   display: flex;
   flex-direction: column;
   display: none;
+  border: blue solid;
 }
 
 .delivery-reg {
@@ -20,7 +46,7 @@ body {
 }
 
 form {
-  width: 50%;
+  width: calc(90% - 5vw);
 }
 
 .options {

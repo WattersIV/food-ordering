@@ -14,9 +14,9 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/toggle.js"></script>
   </head>
-
   <body>
-     <%- include('partials/_header') %>
+      <!---Header Partial ---->
+  <%- include('partials/_header') %>
     <h1>RESTAURANT NAME</h1>
     <div class="options">
       <button id="takeout">Takeout</button>
@@ -28,17 +28,19 @@
         <h1>Registration for Takeout</h1>
         <p>Please fill in the required information below.</p>
         <hr>
-
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter email" name="email" id="email" required><br>
-
-        <label for="phone"><b>Phone Number</b></label>
-        <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
-        <hr>
-
+        <div class="field">
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
+        </div>
+        <div class="field">
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter email" name="email" id="email" required><br>
+        </div>
+        <div class="field">
+          <label for="phone"><b>Phone Number</b></label>
+          <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
+          <hr>
+        </div>
         <button type="submit" class="registerbtn">Register</button>
       </div>
     </form>
@@ -47,24 +49,32 @@
         <h1>Registration for Delivery</h1>
         <p>Please fill in the required information below.</p>
         <hr>
-
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter email" name="email" id="email" required><br>
-
-        <label for="phone"><b>Phone Number</b></label>
-        <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
-        <hr>
-        <label for="address"><b>Address</b></label>
-        <input type="text" placeholder="please enter address" name="address" id="address" required><br>
-        <hr>
-        <label for="address"><b>Postal code</b></label>
-        <input type="address" placeholder="please enter address" name="postal_code" id="text" required><br>
+        <div class="field">
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
+        </div>
+        <div class="field">
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter email" name="email" id="email" required><br>
+        </div>
+        <div class="field">
+          <label for="phone"><b>Phone Number</b></label>
+          <input type="tel" placeholder="Enter phone number" name="phone" id="phone" required><br>
+          <hr>
+        </div>
+        <div class="field">
+          <label for="address"><b>Address</b></label>
+          <input type="text" placeholder="please enter address" name="address" id="address" required><br>
+          <hr>
+        </div>
+        <div class="field">
+          <label for="address"><b>Postal code</b></label>
+          <input type="address" placeholder="please enter postal code" name="postal_code" id="text" required><br>
+        </div>
         <button type="submit" class="registerbtn">Register</button>
       </div>
     </form>
-    <%- include('partials/_footer') %>
   </body>
+  <!-- Footer Partial ---->
+  <%- include('partials/_footer') %>
 </html>
