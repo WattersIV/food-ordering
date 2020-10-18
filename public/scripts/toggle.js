@@ -3,9 +3,15 @@ $(document).ready(function() {
   deliveryButtonHandler();
 });
 
+let deliveryClicked = false;
+let takeoutClicked = false;
+
+
 const takeoutButtonsHandler = () => {
   $("#takeout").click(function() {
-    $("#takeout").prop('disabled', true);
+    deliveryClicked === true ? deliveryClicked = false : null;
+    takeoutClicked = true;
+    diableButton();
     if ($(".takeout-reg").is(':visible')){
     $(".takeout-reg").slideUp("slow");
     } else {
@@ -16,11 +22,24 @@ const takeoutButtonsHandler = () => {
 
 const deliveryButtonHandler = () => {
   $("#delivery").click(function() {
-    $("#delivery").prop('disabled', true);
+    takeoutClicked === true ? takeoutClicked = false : null;
+    deliveryClicked = true;
+    diableButton();
     if ($(".delivery-reg").is(':visible')){
     $(".delivery-reg").slideUp("slow");
     } else {
     $(".delivery-reg").slideDown("slow");
     }
   });
+}
+
+const diableButton = () => {
+  if (deliveryClicked === true) {
+    $("#delivery").prop('disabled', true);
+    $("#takeout").prop('disabled', false);
+  }
+  else if (takeoutClicked === true && deliveryClicked === false) {
+    $("#takeout").prop('disabled', true);
+    $("#delivery").prop('disabled', false);
+  }
 }
