@@ -17,12 +17,13 @@
         </tr>
       </thead>
       <tbody>
+        <% for (const food in renderFoods) { %>
           <tr>
-            <td></td>
-            <td></td>
+            <td><%= food.title %></td>
             <td><input type="button" value="Edit"></td>
             <td><button type="submit" value=>Delete</button></td>
           </tr>
+          <% } %>
       </tbody>
     </table>
   </main>

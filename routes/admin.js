@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 
+
 module.exports = (db) => {
 
 router.get("/login", (req, res) => {
@@ -21,7 +22,33 @@ router.get("/main_page", (req, res) => {
 });
 
 router.get("/edit_menu", (req, res) => {
-  res.render("edit_menu")
+
+  const getFoodItemsByName = () => {
+    const queryString = `
+    SELECT title FROM foods;
+    `;
+    return db.query(queryString).then(resolve => console.log(resolve))
+  };
+
+  const renderFoods = getFoodItemsByName()
+
+  console.log(renderFoods)
+  // const test = param => {
+  //   for (const check of param) {
+  //     console.log(check)
+  //   }
+  // };
+
+  // // let first = [1,2,3,4]
+
+  // // test(first)
+
+
+  templateVars = {
+    renderFoods
+  };
+
+  res.render("edit_menu", templateVars)
 });
 
 return router
