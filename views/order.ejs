@@ -20,6 +20,14 @@
       <div class="menu-items">
         <h3>Menu </h3>
           <section id="menu-section">
+          <% for (let food of foods) { %>
+            <article class="food-container">
+              <img class="food-picture" src="<%= food.food_picture_url %>"/>
+              <p class="food-name"><%= food.title %></p>
+              <p class="food-price"><%= food.price_cents %></p>
+              <button type="bußtton" class="add-menu-btn"> + </button>
+            </article>
+          <% } %>
           </section>
         </div>
       </div>
@@ -28,9 +36,7 @@
         <h3> Your Order </h3>
         <section id="order-list section">
         </section>
-        <div class="order list">
-
-        </div>
+        <div class="order list"></div>
       </div>
     </main>
 
