@@ -2,6 +2,7 @@ const { getAllFoods } = require('../../server/database');
 
 $(document).ready(function(){
   loadFoods();
+  renderFoodToList();
 })
 
 const foodsData = getAllFoods();
@@ -42,6 +43,7 @@ const addFoodToList = function (foodsData) {
 const renderFoodToList = function () {
   const $container = $('#order-list');
   $(".add-menu-btn").on("click", function (){
+    console.log("Im here!")
     $container.append(addFoodToList());
     })
 }

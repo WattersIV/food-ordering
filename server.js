@@ -54,7 +54,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/', mainRoutes(db));
 app.use("/admin", adminRoutes(db));
-app.use("/order", orderRoutes(db));
+// app.use("/order", orderRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -67,10 +67,20 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-// app.get("/order", (req, res) => {
-//   res.render("order");
-// });
+const getFoodItems = () => {
+    const queryString = `
+      SELECT * FROM foods;`;
+      return db.query(queryString).then(res => res.rows);
+};
+
+app.get("/order", (req, res) => {
+  getFoodItems()
+    .then(items => {
+      res.render("order", { items })
+  });
+});
 
 app.get("/test", (req, res) => {
   res.render("confirmation");
 });
+
