@@ -67,8 +67,6 @@ router.post("edit_menu/:id/delete", (req, res) => {
   .then(res.redirect("/admin/edit_menu"))
 });
 
-
-// BUG, IT REODERS THE DATABASE
 router.post("/edit_menu/:id/edit", (req, res) => {
   const updateMenuItem = (food_id) => {
     const queryString = `
