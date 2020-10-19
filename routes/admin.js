@@ -3,7 +3,7 @@ const router  = express.Router();
 
 
 
-module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem}) => {
+module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem, deleteFoodItem}) => {
 
 router.get("/login", (req, res) => {
   res.render("admin_login")
@@ -49,15 +49,7 @@ router.post("/logout", (req, res) => {
   res.redirect("/admin/login")
 })
 
-// delete is not working
-const deleteFoodItem = (food_id) => {
-  const queryString = `
-  DELETE FROM foods WHERE id = ${food_id}
-  `;
-  db.query(queryString).then(console.log("successfully deleted"))
-}
-
-router.post("edit_menu/:id/delete", (req, res) => {
+router.post("/edit_menu/:id/delete", (req, res) => {
   const foodID = req.params.id;
   if (req.session.isAuthenticated) {
   deleteFoodItem(foodID)
