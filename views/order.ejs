@@ -25,7 +25,7 @@
               <img class="food-picture" src="<%= food.food_picture_url %>"/>
               <p class="food-name"><%= food.title %></p>
               <p class="food-price"><%= food.price_cents %></p>
-              <button type="bußtton" class="add-menu-btn"> + </button>
+              <button type="button" class="add-menu-btn" value=<%= food.id %>> + </button>
             </article>
           <% } %>
           </section>
@@ -33,7 +33,17 @@
       </div>
       <div class="order-summary">
         <h3> Your Order </h3>
-        <section id="order-list section">
+        <section id="order-list-section">
+          <form>
+            <select multiple>
+              <option value="1" selected disabled>One</option>
+              <option value="2" selected disabled>Two</option>
+              <option value="3" selected disabled>Three</option>
+              <option value="4" selected disabled>Four</option>
+              <option value="5" selected disabled>Five</option>
+            </select>
+            <button></button>
+          </form>
         </section>
         <div class="order list"></div>
       </div>
