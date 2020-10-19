@@ -23,9 +23,12 @@
             <% for (let food of items) { %>
             <article class="food-container">
               <img class="food-picture" src="<%= food.food_picture_url %>"/>
+              <form method="POST" action="/order/:id">
               <p class="food-name"><%= food.title %></p>
               <p class="food-price"><%= food.price_cents %></p>
-              <button type="button" class="add-menu-btn" value=<%= food.id %>> + </button>
+                <button type="submit" class="subtract-menu-btn" value=<%= food.id %>> - </button>
+                <button type="submit" class="add-menu-btn" value=<%= food.id %>> + </button>
+              </form>
             </article>
           <% } %>
           </section>
@@ -34,7 +37,7 @@
       <div class="order-summary">
         <h3> Your Order </h3>
         <section id="order-list-section">
-          <form>
+          <!-- <form>
             <select multiple>
               <option value="1" selected disabled>One</option>
               <option value="2" selected disabled>Two</option>
@@ -43,7 +46,25 @@
               <option value="5" selected disabled>Five</option>
             </select>
             <button></button>
-          </form>
+          </form> -->
+          <table class="order-list">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantitiy</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td id="food-name">Example name</td>
+                  <td id="food-price">Example Price</td>
+                  <td id="food-quantity">Example Quantity</td>
+                </tr>
+            </tbody>
+            </table>
+            <p>Total Price: </p>
+            <button>Confirmation</button>
         </section>
         <div class="order list"></div>
       </div>

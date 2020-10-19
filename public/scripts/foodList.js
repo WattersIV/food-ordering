@@ -1,11 +1,10 @@
 
 $(document).ready(function(){
-  loadFoods();
-  renderFoodToList();
+ appendFoodtoList();
 })
 
-const foodsData = getAllFoods();
-console.log(foodsData);
+// const foodsData = getAllFoods();
+// console.log(foodsData);
 
 // const createFoodElement = function(foodsData) {
 
@@ -32,19 +31,48 @@ console.log(foodsData);
 //   .then(renderFoods(foodsData));
 // };
 
-const addFoodToList = function (foodsData) {
-  const $foodItem = $(` <ol>
-            <li>Item:${foodsData.title}</li>
-            <li>Price:${foodsData.price_cents} Qty:</li>
-          </ol>`);
-          return $foodItem;
+// const addFoodToList = function (foodsData) {
+//   const $foodItem = $(` <ol>
+//             <li>Item:${foodsData.title}</li>
+//             <li>Price:${foodsData.price_cents} Qty:</li>
+//           </ol>`);
+//           return $foodItem;
+// }
+
+// const addFoodToList = function () {
+//   const $container = $('#order-list-section');
+//   $(".add-menu-btn").on("click", function (){
+//     $container.append(addFoodToList());
+//     })
+// }
+
+// 1 function to increase the quantitiy
+// 1 function to increase the price
+// 1 function to append the food
+// 1 functon to delete the food
+
+const addFoodElement = (name, price) => {
+  const foodItem = `
+  <tr>
+  <td id="food-name">${name}</td>
+  <td id="food-price">${price}</td><br>
+  <td id="food-quantity">1</td>
+</tr>
+  `
+  return foodItem;
 }
 
-const renderFoodToList = function () {
-  const $container = $('#order-list');
-  $(".add-menu-btn").on("click", function (){
-    console.log("Im here!")
-    $container.append(addFoodToList());
-    })
+const appendFoodtoList = () => {
+  const container = $("#order-list-section");
+  $(".add-menu-btn").click(function (evt) {
+    container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent));
+  })
 }
 
+
+// const subtractFoodToList = function () {
+//   const $container = $('#order-list-section');
+//   $(".add-menu-btn").on("click", function (){
+//     $container.append(addFoodToList());
+//     })
+// }

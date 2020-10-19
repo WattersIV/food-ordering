@@ -54,13 +54,8 @@ const orderRoutes = require("./routes/order");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/', mainRoutes(db));
-<<<<<<< HEAD
-app.use("/admin", adminRoutes(db));
-app.use("/order", orderRoutes(db));
-=======
 app.use("/admin", adminRoutes(databaseHelpers));
-
->>>>>>> master
+app.use("/order", orderRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
