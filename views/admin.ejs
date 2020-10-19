@@ -22,6 +22,9 @@
 <main class="Order/Menu">
   <article class= "orders not yet confirmed">
     <h2>Orders to be confirmed</h2>
+    <% for (const order of orders) { %>
+    <span>Order ID: <%= order.id %></span><br>
+    <% } %>
   </article>
   <article class="confirmation of order">
     <h2>Confirm Order</h2>
@@ -34,6 +37,7 @@
     <label for="not_ready">No</label><br>
     <span>In how many minutes will the order be ready?</span><br>
     <input type="text">
+    <button type="submit">Submit</button>
   </article>
 </main>
 </body>

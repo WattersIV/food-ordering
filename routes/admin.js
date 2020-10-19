@@ -9,8 +9,19 @@ router.get("/login", (req, res) => {
   res.render("admin_login")
 });
 
+const getOrders = () => {
+  const queryString = `
+  SELECT id from orders;
+  `
+  return db.query(queryString).then(resolve => resolve.rows)
+}
+
 router.get("/main_page", (req, res) => {
-  res.render("admin")
+  getOrders()
+  .then(orders => {
+    res.render("admin", {orders, page: "admin"})
+  })
+  .catch(err => console.log(err))
 });
 
 const getFoodItems = () => {
@@ -38,14 +49,17 @@ const getFoodItemsById = (food_id) => {
 
 router.get("/edit_menu/:id/edit", (req, res) => {
   const foodID = req.params.id;
+  if (req.session.isAuthenticated) {
   getFoodItemsById(foodID)
   .then(item => {
     res.render("edit_foodInfo", {item, page: "edit_foodInfo"})
   })
+}
 })
 
 router.post("/login", (req, res) => {
   if (req.body.password === "food") {
+    req.session.isAuthenticated = true;
     res.redirect("/admin/main_page")
   } else {
   res.redirect("/admin/login")
@@ -63,8 +77,10 @@ const deleteFoodItem = (food_id) => {
 
 router.post("edit_menu/:id/delete", (req, res) => {
   const foodID = req.params.id;
+  if (req.session.isAuthenticated) {
   deleteFoodItem(foodID)
   .then(res.redirect("/admin/edit_menu"))
+  }
 });
 
 router.post("/edit_menu/:id/edit", (req, res) => {
@@ -82,8 +98,10 @@ router.post("/edit_menu/:id/edit", (req, res) => {
   };
 
   const foodID = req.params.id;
+  if (req.session.isAuthenticated) {
   updateMenuItem(foodID)
   .then(res.redirect("/admin/edit_menu"))
+  }
 })
 
 return router
