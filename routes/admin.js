@@ -66,6 +66,11 @@ router.post("/login", (req, res) => {
   }
 });
 
+router.post("/logout", (req, res) => {
+  req.session.isAuthenticated = false;
+  res.redirect("/admin/login")
+})
+
 // delete is not working
 const deleteFoodItem = (food_id) => {
   const queryString = `

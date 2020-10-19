@@ -6,6 +6,7 @@
   <title>Edit information</title>
 </head>
 <body>
+  <%- include('partials/_admin_header') %>
   <form method="POST" action="/admin/edit_menu/<%=item.id%>/edit">
   <input name="title" type="text" value="<%=item.title%>">
   <input name="picture" type="text" value="<%=item.food_picture_url%>">
