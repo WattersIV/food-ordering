@@ -1,78 +1,56 @@
-
 $(document).ready(function(){
- appendFoodtoList();
-})
+ appendFoodToList();
+});
 
-// const foodsData = getAllFoods();
-// console.log(foodsData);
+const changeQuantity = (event) => {
 
-// const createFoodElement = function(foodsData) {
+  let currentValue = event.target.nextSibling.nextSibling.innerHTML;
 
-//   const $food = $(` <article class="food-container">
-//            <img class="food-picture" src="${foodsData.food_picture_url}"/>
-//            <p class="food-name">${foodsData.title}</p>
-//            <p class="food-price">${foodsData.price_cents}</p>
-//             <button type="button" class="add-menu-btn"> + </button>
-//         </article>`);
-//         return $food;
-// };
+  console.log("Current Value: ", currentValue);
+  // if (id === "increase") {
+  //   // let currentValue = $(evt.target.parentElement.children[1].textContent).siblings(".quantity").val();
+  //   console.log(currentValue);
+  //   $(this).siblings(".quantity").val(currentValue += 1);
+  // };
+  if (id === "decrease") {
+    let newVal = currentValue - 1;
+    console.log(newVal);
+    $(event.target.nextSibling).html(newVal);
+  }
+  // evt.preventDefault();
+}
 
-// const renderFoods = function (foods) {
-//   let $element;
-//   const $container = $('#menu-section');
-//   for (const food of foods) {
-//     $element = createFoodElement(food);
-//     $container.append($element);
-//   }
-// }
-
-// const loadFoods = function () {
-//   $.ajax('/order', { method: 'GET' })
-//   .then(renderFoods(foodsData));
-// };
-
-// const addFoodToList = function (foodsData) {
-//   const $foodItem = $(` <ol>
-//             <li>Item:${foodsData.title}</li>
-//             <li>Price:${foodsData.price_cents} Qty:</li>
-//           </ol>`);
-//           return $foodItem;
-// }
-
-// const addFoodToList = function () {
-//   const $container = $('#order-list-section');
-//   $(".add-menu-btn").on("click", function (){
-//     $container.append(addFoodToList());
-//     })
-// }
-
-// 1 function to increase the quantitiy
-// 1 function to increase the price
-// 1 function to append the food
-// 1 functon to delete the food
+const cq = () => {
+  event.stopPropagation();
+  console.log("Hello World");
+}
 
 const addFoodElement = (name, price) => {
   const foodItem = `
   <tr>
-  <td id="food-name">${name}</td>
-  <td id="food-price">${price}</td><br>
-  <td id="food-quantity">1</td>
-</tr>
-  `
+    <td id="food-name">${name}</td>
+    <td id="food-price">${price}</td>
+    <td id="food-quantity">
+      <button id="decrease" type="button" onclick="${cq}">-</button>
+      <span class="quantity">1</span>
+      <button id="increase" type="button">+</button>
+    </td>
+  </tr>
+  `;
   return foodItem;
 }
 
-const appendFoodtoList = () => {
-  const container = $("#order-list-section");
+const appendFoodToList = () => {
+  const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
-    container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent));
-  })
-}
+    console.log("CLIIIIIIICKED")
+    container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
+  });
+};
 
-
-// const subtractFoodToList = function () {
-//   const $container = $('#order-list-section');
-//   $(".add-menu-btn").on("click", function (){
-//     $container.append(addFoodToList());
-//     })
-// }
+const removeFoodFromList = () => {
+  const container = $("#order-container");
+  $(".subtract-menu-btn").click(function (evt) {
+    container.remove();
+  });
+};
