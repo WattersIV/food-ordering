@@ -25,6 +25,8 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(() => {
+        console.log('NAME HERE!!!', req.body.name)
+
       // Gets users id
       db.query(`
       SELECT users.id
