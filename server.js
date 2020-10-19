@@ -25,6 +25,7 @@ const { Pool, Client } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
+const databaseHelpers = require("./helpers/database_helpers")(db);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -53,7 +54,7 @@ const orderRoutes = require("./routes/order");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/', mainRoutes(db));
-app.use("/admin", adminRoutes(db))
+app.use("/admin", adminRoutes(databaseHelpers));
 
 
 // Home page
