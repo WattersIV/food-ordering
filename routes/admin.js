@@ -49,6 +49,10 @@ router.post("/logout", (req, res) => {
   res.redirect("/admin/login")
 })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 router.post("/edit_menu/:id/delete", (req, res) => {
   const foodID = req.params.id;
   if (req.session.isAuthenticated) {

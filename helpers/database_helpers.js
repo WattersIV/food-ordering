@@ -37,10 +37,16 @@ const updateMenuItem = (food_id, queryParams) => {
 
 const deleteFoodItem = (food_id) => {
   const queryString = `
+<<<<<<< HEAD
   DELETE FROM foods WHERE id = ${food_id};
   `;
   return db.query(queryString).then(console.log("successfully deleted"))
   .catch(err => console.log(err))
+=======
+  DELETE FROM foods WHERE id = ${food_id}
+  `;
+  return db.query(queryString).then(console.log("successfully deleted"))
+>>>>>>> master
 }
 
 return {

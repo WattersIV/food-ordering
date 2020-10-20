@@ -4,11 +4,10 @@ const app        = express();
 app.set("view engine", "ejs");
 
 
-
 module.exports = (db) => {
   return router.post("/", function (req, res) {
     const queryList = [req.body.name, req.body.email, req.body.phone, req.body.address, req.body.postal_code];
-    const queryParams = [];
+    let queryParams = [];
 
     //filters out undefinded and replaces with null
     for (const query of queryList) {
@@ -18,6 +17,7 @@ module.exports = (db) => {
         queryParams.push(null);
       }
     }
+
     const queryString = `
       INSERT INTO users (name, email, phone, address, postal_code)
       VALUES ($1, $2, $3, $4, $5)
@@ -25,26 +25,57 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(() => {
-      // Gets users id
-      db.query(`
+        console.log('NAME HERE!!!', req.body.name)
+
+      const qString = `
       SELECT users.id
       FROM users
       WHERE name LIKE '%${req.body.name}%'
       AND email LIKE '%${req.body.email}%'
-      AND phone LIKE '%${req.body.phone}%';`, function (err, results) {
+      AND phone LIKE '%${req.body.phone}%';`
+
+      // Gets users id
+      db.query(qString, function (err, results) {
       if (err) {
         console.log(err)
       } else {
-        //saves created users id and name as a cookies
-        req.session.id = results.rows[0].id;
-        req.session.name = req.body.name;
+
         db.query(`
         SELECT *
         FROM users
-        WHERE users.id=${req.session.id};`, function (eror, results, fields) {
-          //Sending all user info to ejs
-          console.log('rows 0 !(@#777', results.rows[0], 'NAME', results.rows[0].name)
-          res.render("order", {data: results.rows[0]})
+        WHERE users.id=${results.rows[0].id};`, function (eror, results, fields) {
+          //Gives name to user object for cookie
+          const users = {id: results.rows[0].id,
+                  name: results.rows[0].name,
+                  email: results.rows[0].email,
+                  address: results.rows[0].address,
+                  postal_code: results.rows[0].postal_code }
+
+          //set cookie for user
+          req.session.user = users;
+
+          //making cart
+          const cart = db.query(`
+          INSERT INTO orders (user_id)
+          VALUES (${results.rows[0].id})
+          RETURNING *;`)
+            .then((data) => {
+
+
+              let cookie = {cart_id: data.rows[0].id,
+                            order_completed: data.rows[0].order_completed};
+
+              //Set cookie for cart
+              req.session.cart = cookie;
+              console.log(req.session.cart.cart_id)
+              //console.log(req.session.user)
+            })
+
+            //Redirect to order/:id
+             .then(() => {
+                console.log(req.session.cart.cart_id)
+                res.redirect(`order/${req.session.cart.cart_id}`)
+             })
         });
       }})
     })
