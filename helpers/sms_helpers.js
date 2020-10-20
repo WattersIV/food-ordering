@@ -9,7 +9,7 @@ const client = require('twilio')(accountSid, authToken);
 return client.messages.create({body, from, to})};
 
 
-sendMessage("hello world", "+14388664160").then(response => console.log(response.body));
+sendMessage("hello world", "4388664160").then(response => console.log(response.body));
 
 
 
