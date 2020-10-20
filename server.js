@@ -69,7 +69,8 @@ app.listen(PORT, () => {
 });
 
 app.get("/order/:id", (req, res) => {
-  res.render("order");
+  console.log(req.session.cart.cart_id)
+  res.render("order", {data: req.session});
 });
 
 app.get("/test", (req, res) => {
