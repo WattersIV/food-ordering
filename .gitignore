@@ -3,3 +3,7 @@ public/styles
 .env
 *.log
 *.sqlite3
+reply_sms.php
+send_sms.php
+composer.json
+composer.lock
