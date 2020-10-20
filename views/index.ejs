@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Petit Gâteau</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/_footer.css" type="text/css" />
-    <link rel="stylesshet" href="/styles/_header.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/_header.css" type="text/css" />
+
     <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/_footer.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Lobster&family=Lora:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Parisienne&display=swap" rel="stylesheet">
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/toggle.js"></script>
   </head>
 
+
+  <body>
     <section>
       <!---Header Partial ---->
       <%- include('partials/_header') %>
-      <h1>RESTAURANT NAME</h1>
+      <h1 class="title">Petit Gâteau</h1>
     </section>
-  <body>
     <div class="options">
       <button id="takeout">Takeout</button>
       <button id="delivery">Delivery</button>
@@ -28,7 +31,7 @@
   </body>
     <form method="POST" action="/">
       <div class="takeout-reg">
-        <h3>Registration for Takeout</h3>
+        <h3 class="registration-title">Registration for Takeout</h3>
         <p>Please fill in the required information below.</p>
         <hr>
         <div class="field">
@@ -49,7 +52,7 @@
     </form>
     <form method="POST" action="/">
       <div class="delivery-reg">
-        <h3>Registration for Delivery</h3>
+        <h3 class="registration-title">Registration for Delivery</h3>
         <p>Please fill in the required information below.</p>
         <hr>
         <div class="field">

@@ -1,5 +1,13 @@
 $font-stack:    Helvetica, sans-serif;
 
 header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
   color: black;
+  padding-right: 3em;
+  font-family: 'Lora', serif;
 }
+  .homepage {
+    padding-right: 5px;
+  }
