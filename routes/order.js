@@ -5,7 +5,7 @@ module.exports = (db) => {
 
   const getFoodItems = () => {
     const queryString = `SELECT * FROM foods;`;
-      return db.query(queryString).then(res => res.rows);
+      return db.query(queryString).then(response => response.rows);
   };
 
   router.get("/", (req, res) => {
