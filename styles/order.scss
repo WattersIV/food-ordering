@@ -25,9 +25,10 @@ body {
       flex-direction: row;
       width: 100vw;
       .menu {
-        margin: 3em;
-        width: 100vw;
+        margin: 1em;
+        width: 60vw;
         flex-direction: column;
+        align-items: center;
         justify-content: center;
 
       }
@@ -36,13 +37,15 @@ body {
     .food-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
 
     }
   }
 
 
 .h3-title {
+  display: flex;
+  justify-content: center;
   font-size: 3em;
 }
 
@@ -50,7 +53,7 @@ body {
 .menu-section {
   display: flex;
   flex-direction: row;
-  margin: 3em;
+  margin: 1em;
 }
 
 .food-picture {
@@ -76,7 +79,7 @@ body {
   .order-summary {
     display: flex;
     flex-direction: column;
-    margin: 3em;
+    margin: 1em;
   }
 
 }
