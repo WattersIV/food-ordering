@@ -2,9 +2,8 @@ $(document).ready(function(){
  appendFoodToList();
 });
 
-const foodItems = {};
-
 const addFoodElement = (name, price) => {
+  //White space cant be in name
   const newName = name.replace(/\s/g, '')
   const foodItem = `
   <tr>
@@ -13,28 +12,26 @@ const addFoodElement = (name, price) => {
     <td id="food-quantity">
       <form  id='${newName}' method='POST' action='#'>
         <input type='button' value='-' id='${newName}-minus' class='qtyminus' field='quantity' />
-        <input type='text' name='${newName}-quantity' value='0' class='qty' />
+        <input type='text' name='${newName}-quantity' value='1' class='qty' />
         <input type='button' value='+' id='${newName}-plus' class='qtyplus' field='quantity' />
       </form>
     </td>
   </tr>
   `;
-  console.log('LOOK HERE!',newName)
-  foodItems
   return foodItem;
 }
 
 const appendFoodToList = () => {
   let nam;
+  //Last thing staticly created in ejs
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
     container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
-    console.log($(this).attr('name'))
     nam = $(this).attr('name').replace(/\s/g, '')
   });
 
     container.on("click", `.qtyplus`, e => {
-
+      //target sibiling of the target
       const fieldName = $(e.target).siblings("input.qty")
       let currentVal = parseInt(fieldName.val());
       console.log(fieldName, currentVal)
