@@ -8,14 +8,21 @@ module.exports = (db) => {
       return db.query(queryString).then(response => response.rows);
   };
 
-  router.get("/", (req, res) => {
+  router.get("/:id", (req, res) => {
     getFoodItems()
-      .then(items => {
-        console.log("CHECKKKKKKKK")
-        console.log(items);
-        res.render("order", {items, page: "order"})
+    .then(items => {
+      res.render("order", {data: req.session, items});
     })
-  })
+  });
+
+  // router.get("/", (req, res) => {
+  //   getFoodItems()
+  //     .then(items => {
+  //       console.log("CHECKKKKKKKK")
+  //       console.log(items);
+  //       res.render("order", {items, page: "order"})
+  //   })
+  // })
 
   return router;
 

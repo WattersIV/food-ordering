@@ -16,18 +16,19 @@
   </head>
 
   <body>
+    <h2>Welcome:  <%= data.user.name %>!</h2>
     <main>
       <div class="menu-items">
         <h3>Menu </h3>
           <section id="menu-section">
-            <!-- <% for (let food of items) { %>
+            <% for (let food of items) { %>
             <article class="food-container">
               <img class="food-picture" src="<%= food.food_picture_url %>"/>
               <p class="food-name"><%= food.title %></p>
               <p class="food-price"><%= food.price_cents %></p>
                 <button type="button" class="add-menu-btn" value=<%= food.id %>> Add to Order </button>
             </article>
-          <% } %> -->
+          <% } %>
           </section>
       </div>
       <div class="order-summary">
@@ -52,7 +53,6 @@
           </table>
             <p>Total Price: </p>
             <button>Confirmation</button>
-        <%= data.user.name %>
         <section id="order-list section">
         </section>
       </div>
