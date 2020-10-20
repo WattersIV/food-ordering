@@ -68,6 +68,13 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
+<<<<<<< HEAD
+=======
+app.get("/order/:id", (req, res) => {
+  console.log(req.session.cart.cart_id)
+  res.render("order", {data: req.session});
+});
+>>>>>>> master
 
 app.get("/test", (req, res) => {
   res.render("confirmation");
