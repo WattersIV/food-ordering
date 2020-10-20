@@ -1,8 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 
-
-
 module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem, deleteFoodItem}) => {
 
 router.get("/login", (req, res) => {

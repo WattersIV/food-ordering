@@ -42,12 +42,22 @@ const deleteFoodItem = (food_id) => {
   return db.query(queryString).then(console.log("successfully deleted"))
 }
 
+const confirmOrder = (id) => {
+  const queryString = `
+  UPDATE orders
+  SET order_complete = true;
+  where id = ${id};
+  `;
+  return db.query(queryString)
+}
+
 return {
 getOrders,
 getFoodItems,
 getFoodItemsById,
 updateMenuItem,
-deleteFoodItem
+deleteFoodItem,
+confirmOrder
 };
 
 }
