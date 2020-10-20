@@ -2,28 +2,6 @@ $(document).ready(function(){
  appendFoodToList();
 });
 
-const changeQuantity = (event) => {
-
-  let currentValue = event.target.nextSibling.nextSibling.innerHTML;
-
-  console.log("Current Value: ", currentValue);
-  // if (id === "increase") {
-  //   // let currentValue = $(evt.target.parentElement.children[1].textContent).siblings(".quantity").val();
-  //   console.log(currentValue);
-  //   $(this).siblings(".quantity").val(currentValue += 1);
-  // };
-  if (id === "decrease") {
-    let newVal = currentValue - 1;
-    console.log(newVal);
-    $(event.target.nextSibling).html(newVal);
-  }
-  // evt.preventDefault();
-}
-
-const cq = () => {
-  event.stopPropagation();
-  console.log("Hello World");
-}
 
 const addFoodElement = (name, price) => {
   const foodItem = `
@@ -31,9 +9,11 @@ const addFoodElement = (name, price) => {
     <td id="food-name">${name}</td>
     <td id="food-price">${price}</td>
     <td id="food-quantity">
-      <button id="decrease" type="button" onclick="${cq}">-</button>
-      <span class="quantity">1</span>
-      <button id="increase" type="button">+</button>
+    <form id='myform' method='POST' action='#'>
+    <input type='button' value='-' class='qtyminus' field='quantity' />
+    <input type='text' name='quantity' value='0' class='qty' />
+    <input type='button' value='+' class='qtyplus' field='quantity' />
+</form>
     </td>
   </tr>
   `;
@@ -43,14 +23,29 @@ const addFoodElement = (name, price) => {
 const appendFoodToList = () => {
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
-    console.log("CLIIIIIIICKED")
+    console.log("CLIIIIIIICKED", evt)
     container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
+    $('.qtyplus').click(function(event){
+      event.preventDefault();
+      fieldName = $(this).attr('field');
+      let currentVal = parseInt($('input[name='+fieldName+']').val());
+      if (!isNaN(currentVal)) {
+          $('input[name='+fieldName+']').val(currentVal + 1);
+      } else {
+          $('input[name='+fieldName+']').val(0);
+      }
+  });
+  $(".qtyminus").click(function(event) {
+      event.preventDefault();
+      fieldName = $(this).attr('field');
+      var currentVal = parseInt($('input[name='+fieldName+']').val());
+      if (!isNaN(currentVal) && currentVal > 0) {
+          $('input[name='+fieldName+']').val(currentVal - 1);
+      } else {
+          $('input[name='+fieldName+']').val(0);
+      }
+  });
   });
 };
 
-const removeFoodFromList = () => {
-  const container = $("#order-container");
-  $(".subtract-menu-btn").click(function (evt) {
-    container.remove();
-  });
-};
+
