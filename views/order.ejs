@@ -27,7 +27,7 @@
               <img class="food-picture" src="<%= food.food_picture_url %>"/>
               <p class="food-name"><%= food.title %></p>
               <p class="food-price"><%= food.price_cents %></p>
-                <button type="button" class="add-menu-btn" name=<%= food.title %> value=<%= food.id %>> Add to Order </button>
+                <button name="<%= food.title %>" type="button" class="add-menu-btn"  value=<%= food.id %>> Add to Order </button>
             </article>
           <% } %>
           </section>

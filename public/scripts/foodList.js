@@ -24,35 +24,39 @@ const addFoodElement = (name, price) => {
 }
 
 const appendFoodToList = () => {
+  let nam;
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
     container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
-    const name = $(this).attr('name')//.parent().attr('id')
-    console.log(name)
+    nam = $(this).attr('name')
+  });
+    console.log(nam)
 
-    $(`#${name}-plus.qtyplus`).click(function(event){
-      event.preventDefault();
-      fieldName = $(this).attr('field');
+    container.on("click", `.qtyplus`, e => {
+      console.log(nam)
+      const fieldName = $(`${nam}-plus`).attr('id');
       let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-      console.log(currentVal)
+      console.log(fieldName, currentVal)
       if (!isNaN(currentVal)) {
           $(`input[name=${fieldName}]`).val(currentVal + 1);
       } else {
           $(`input[name=${fieldName}]`).val(0);
       }
-  });
-  $(`#${name}-minus.qtyminus`).click(function(event) {
-      event.preventDefault();
-      fieldName = $(this).attr('field');
+    });
+
+
+     container.on("click", `.qtyminus`, e => {
+      console.log($(`${nam}-minus`))
+      const fieldName = $(`${nam}-minus`).attr('field');
       let currentVal = parseInt($(`input[name=${fieldName}]`).val());
-      console.log(currentVal)
+      console.log(fieldName, currentVal)
       if (!isNaN(currentVal) && currentVal > 0) {
           $(`input[name=${fieldName}]`).val(currentVal - 1);
       } else {
           $(`input[name=${fieldName}]`).val(0);
       }
   });
-  });
+
 };
 
 
