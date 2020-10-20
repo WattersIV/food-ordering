@@ -23,26 +23,25 @@ const addFoodElement = (name, price) => {
 const appendFoodToList = () => {
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
-    console.log("CLIIIIIIICKED", evt)
     container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
     $('.qtyplus').click(function(event){
       event.preventDefault();
       fieldName = $(this).attr('field');
-      let currentVal = parseInt($('input[name='+fieldName+']').val());
+      let currentVal = parseInt($(`input[name=${fieldName}]`).val());
       if (!isNaN(currentVal)) {
-          $('input[name='+fieldName+']').val(currentVal + 1);
+          $(`input[name=${fieldName}]`).val(currentVal + 1);
       } else {
-          $('input[name='+fieldName+']').val(0);
+          $(`input[name=${fieldName}]`).val(0);
       }
   });
   $(".qtyminus").click(function(event) {
       event.preventDefault();
       fieldName = $(this).attr('field');
-      var currentVal = parseInt($('input[name='+fieldName+']').val());
+      let currentVal = parseInt($(`input[name=${fieldName}]`).val());
       if (!isNaN(currentVal) && currentVal > 0) {
-          $('input[name='+fieldName+']').val(currentVal - 1);
+          $(`input[name=${fieldName}]`).val(currentVal - 1);
       } else {
-          $('input[name='+fieldName+']').val(0);
+          $(`input[name=${fieldName}]`).val(0);
       }
   });
   });
