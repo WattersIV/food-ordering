@@ -9,10 +9,12 @@ body {
   color: $primary-color;
   background-color: lightpink;
   height: 100vh;
+  align-content: space-between;
 
   section{
-    background-color: lightblue;
+    background-image: url('https://images.pexels.com/photos/4109792/pexels-photo-4109792.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     width: 100%;
+    height: auto;
   }
 
   .options {
