@@ -26,6 +26,7 @@ CREATE TABLE foods (
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
   order_completed BOOLEAN DEFAULT FALSE,
+  order_processed BOOLEAN DEFAULT FALSE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
