@@ -3,7 +3,7 @@ const router  = express.Router();
 
 
 
-module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem, deleteFoodItem}) => {
+module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem, deleteFoodItem, completeOrder}) => {
 
 router.get("/login", (req, res) => {
   res.render("admin_login")
@@ -64,6 +64,15 @@ router.post("/edit_menu/:id/edit", (req, res) => {
   if (req.session.isAuthenticated) {
   updateMenuItem(foodID, queryParams)
   .then(res.redirect("/admin/edit_menu"))
+  }
+})
+
+router.post("/confirm", (req, res) => {
+  const ID = req.body.orderID;
+  const minutes = req.body.minutes;
+  if (req.session.isAuthenticated) {
+  completeOrder(ID)
+  .then(res.redirect("/admin/main_page"))
   }
 })
 
