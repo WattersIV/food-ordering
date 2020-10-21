@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Main Page</title>
+
+  <script type="text/javascript" src="/scripts/completeOrders.js"></script>
+
 </head>
 <body>
   <%- include('partials/_admin_header') %>
@@ -17,15 +20,10 @@
   <article class="confirmation of order">
     <h2>Confirm Order</h2>
     <span>Order ID:</span><br>
-    <input type="number" min="0" step="1"><br>
-    <span>Is this order ready?</span><br>
-    <input id="ready" name="ready" type="radio">
-    <label for="ready">Yes</label><br>
-    <input id="not_ready" name="not_ready" type="radio">
-    <label for="not_ready">No</label><br>
+    <input id="orderID" type="number" min="0" step="1"><br>
     <span>In how many minutes will the order be ready?</span><br>
-    <input type="text">
-    <button type="submit">Submit</button>
+    <input type="text"><br>
+    <button id="confirmation" type="submit">Submit</button>
   </article>
 </main>
 </body>

@@ -43,11 +43,11 @@ const deleteFoodItem = (food_id) => {
   return db.query(queryString).then(console.log("successfully deleted"))
 }
 
-const confirmOrder = (id) => {
+const confirmOrder = (order_id) => {
   const queryString = `
   UPDATE orders
   SET order_processed = TRUE
-  where id = ${id}
+  where id = ${order_id}
   RETURNING *;
   `;
   return db.query(queryString)
