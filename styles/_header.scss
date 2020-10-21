@@ -8,12 +8,12 @@ header {
   padding-right: 3em;
   font-family: 'Lora', serif;
   width: 100vw;
-}
-
-.homepage {
-  padding-right: 5px;
+  background-color: #93c193;
+  position: fixed;
+  top: 0;
 }
 
 nav {
-  background-color: #93c193;
+  width: 100vw;
+  height: 3em;
 }
