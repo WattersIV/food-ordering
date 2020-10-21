@@ -35,11 +35,19 @@ const updateMenuItem = (food_id, queryParams) => {
   .catch(err => console.log(err))
 };
 
+const deleteFoodItem = (food_id) => {
+  const queryString = `
+  DELETE FROM foods WHERE id = ${food_id}
+  `;
+  return db.query(queryString).then(console.log("successfully deleted"))
+}
+
 return {
 getOrders,
 getFoodItems,
 getFoodItemsById,
-updateMenuItem
+updateMenuItem,
+deleteFoodItem
 };
 
 }

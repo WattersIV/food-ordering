@@ -48,14 +48,14 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const mainRoutes = require("./routes/main");
 const adminRoutes = require("./routes/admin");
-// const orderRoutes = require("./routes/order");
+const orderRoutes = require("./routes/order");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/', mainRoutes(db));
 app.use("/admin", adminRoutes(databaseHelpers));
-// app.use("/order", orderRoutes(db));
+app.use("/order", orderRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -68,13 +68,11 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-<<<<<<< HEAD
-=======
+
 app.get("/order/:id", (req, res) => {
   console.log(req.session.cart.cart_id)
   res.render("order", {data: req.session});
 });
->>>>>>> master
 
 app.get("/test", (req, res) => {
   res.render("confirmation");

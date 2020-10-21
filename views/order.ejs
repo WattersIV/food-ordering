@@ -16,6 +16,8 @@
   </head>
 
   <body>
+    <%- include('partials/_header') %>
+    <h2>Welcome:  <%= data.user.name %>!</h2>
     <main>
       <div class="menu-items">
         <h3>Menu </h3>
@@ -25,25 +27,15 @@
               <img class="food-picture" src="<%= food.food_picture_url %>"/>
               <p class="food-name"><%= food.title %></p>
               <p class="food-price"><%= food.price_cents %></p>
-                <button type="button" class="add-menu-btn" value=<%= food.id %>> Add to Order </button>
+                <button name="<%= food.title %>" type="button" class="add-menu-btn"  value=<%= food.id %>> Add to Order </button>
             </article>
           <% } %>
           </section>
       </div>
       <div class="order-summary">
         <h3> Your Order </h3>
-<<<<<<< HEAD
         <section id="order-list-section">
-          <!-- <form>
-            <select multiple>
-              <option value="1" selected disabled>One</option>
-              <option value="2" selected disabled>Two</option>
-              <option value="3" selected disabled>Three</option>
-              <option value="4" selected disabled>Four</option>
-              <option value="5" selected disabled>Five</option>
-            </select>
-            <button></button>
-          </form> -->
+
           <table class="order-list">
             <thead>
               <tr>
@@ -62,15 +54,8 @@
           </table>
             <p>Total Price: </p>
             <button>Confirmation</button>
-=======
-<<<<<<< HEAD
-=======
-        <%= data.user.name %>
->>>>>>> 8a70095bd163c9980a3226556d120205493a6c65
         <section id="order-list section">
->>>>>>> master
         </section>
-        <div class="order list"></div>
       </div>
     </main>
   </body>

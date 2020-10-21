@@ -7,7 +7,7 @@ body {
   align-items: center;
   font: 100% $font-stack;
   color: $primary-color;
-  background-color: lightpink;
+  background-color: #aaddbb9e;
   height: 100vh;
 
   section{
@@ -22,12 +22,12 @@ body {
 
     #takeout{
       width: 25vw;
-      background-color: mediumorchid;
+      background-color: #93c193;
     }
 
     #delivery{
       width: 25vw;
-      background-color: limegreen;
+      background-color: #93c193;
     }
 
   h1 {
@@ -35,6 +35,8 @@ body {
     color: $primary-color;
     font-size: 3.5em;
     justify-content: center;
+    align-items: center;
+    align-content: center;
   }
 
   .text-box {
@@ -68,7 +70,7 @@ body {
 
 form {
   display: flex;
-  background-color: lightgrey;
+  background-color: #fff5bb8a;
   width: 90vw;
 }
 
