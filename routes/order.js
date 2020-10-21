@@ -15,11 +15,20 @@ module.exports = (db) => {
     })
   });
 
-  router.get("/:id/confirm", (req, res) => {
-    res.render("thank-you", {data: req.session})
+  router.post("/:id/confirm", (req, res) => {
+    const order_id = req.session.cart.cart_id
+    const queryString = `
+    UPDATE orders
+    SET order_processed = TRUE
+    where id = ${order_id}
+    RETURNING *;
+    `;
+    db.query(queryString)
+    .then(() => {
+      console.log('HERE!')
+      res.render("thank-you", {data: req.session})
+    })
   })
-
-
 
 
 
