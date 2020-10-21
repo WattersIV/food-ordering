@@ -10,9 +10,11 @@ const addFoodElement = (name, price) => {
     <td id="food-price">${price}</td>
     <td id="food-quantity">
     <form id='myform' method='POST' action='#'>
-    <input type='button' value='-' class='qtyminus' field='quantity' />
+    <div class='qty-div'>
+    <input id='minus-btn' type='button' value='-' class='qtyminus' field='quantity' />
     <input type='text' name='quantity' value='0' class='qty' />
-    <input type='button' value='+' class='qtyplus' field='quantity' />
+    <input id='plus-btn' type='button' value='+' class='qtyplus' field='quantity' />
+    <div>
 </form>
     </td>
   </tr>
