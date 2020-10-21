@@ -3,7 +3,7 @@ module.exports = (db) => {
 const getOrders = () => {
   const queryString = `
   SELECT id from orders
-  WHERE order_completed = false AND order_processed = false;
+  WHERE order_completed = FALSE AND order_processed = TRUE;
   `;
   return db.query(queryString).then(resolve => resolve.rows)
 };
@@ -51,11 +51,37 @@ const confirmOrder = (order_id) => {
   RETURNING *;
   `;
   return db.query(queryString)
-}
+};
 
 const completeOrder = (order_id) => {
+  const queryString = `
+  UPDATE orders
+  SET order_completed = TRUE
+  WHERE id = ${order_id}
+  RETURNING *;
+  `;
+  console.log("success")
+  return db.query(queryString)
+};
 
+const createFoodCart = (queryParams) => {
+  const queryString = `
+  INSERT INTO food_carts (order_id, food_id, quantity)
+  VALUES ($1, $2, $3)
+  RETURNING *;
+  `;
+  return db.query(queryString, queryParams).then(resolve => resolve.rows);
 }
+
+const getPhoneNumberById = (order_id) => {
+  const queryString = `
+  SELECT users.phone
+  FROM orders
+  JOIN users ON user_id = users.id
+  where orders.id = ${order_id} AND order_completed = FALSE;
+  `
+  return db.query(queryString).then(resolve => resolve.rows)
+};
 
 
 return {
@@ -64,7 +90,10 @@ getFoodItems,
 getFoodItemsById,
 updateMenuItem,
 deleteFoodItem,
-confirmOrder
+confirmOrder,
+completeOrder,
+createFoodCart,
+getPhoneNumberById,
 };
 
 }
