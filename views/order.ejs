@@ -53,7 +53,9 @@
             </tbody>
           </table>
             <p>Total Price: </p>
-            <button>Confirmation</button>
+            <form method="POST" action="<%= data.cart.cart_id %>/confirm" type="submit">
+              <button>Confirmation</button>
+            </form>
         <section id="order-list section">
         </section>
       </div>

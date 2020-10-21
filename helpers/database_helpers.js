@@ -3,7 +3,7 @@ module.exports = (db) => {
 const getOrders = () => {
   const queryString = `
   SELECT id from orders
-  WHERE order_completed = false AND order_processed = false;
+  WHERE order_completed = false AND order_processed = true;
   `;
   return db.query(queryString).then(resolve => resolve.rows)
 };
