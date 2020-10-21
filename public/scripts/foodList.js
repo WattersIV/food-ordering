@@ -2,18 +2,19 @@ $(document).ready(function(){
  appendFoodToList();
 });
 
-
 const addFoodElement = (name, price) => {
+  //White space cant be in name
+  const newName = name.replace(/\s/g, '')
   const foodItem = `
   <tr>
-    <td id="food-name">${name}</td>
+    <td id="food-name">${newName}</td>
     <td id="food-price">${price}</td>
     <td id="food-quantity">
-    <form id='myform' method='POST' action='#'>
-    <input type='button' value='-' class='qtyminus' field='quantity' />
-    <input type='text' name='quantity' value='0' class='qty' />
-    <input type='button' value='+' class='qtyplus' field='quantity' />
-</form>
+      <form  id='${newName}' method='POST' action='#'>
+        <input type='button' value='-' id='${newName}-minus' class='qtyminus' field='quantity' />
+        <input type='text' name='${newName}-quantity' value='1' class='qty' />
+        <input type='button' value='+' id='${newName}-plus' class='qtyplus' field='quantity' />
+      </form>
     </td>
   </tr>
   `;
@@ -21,30 +22,39 @@ const addFoodElement = (name, price) => {
 }
 
 const appendFoodToList = () => {
+  let nam;
+  //Last thing staticly created in ejs
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
     container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
-    $('.qtyplus').click(function(event){
-      event.preventDefault();
-      fieldName = $(this).attr('field');
-      let currentVal = parseInt($(`input[name=${fieldName}]`).val());
+    nam = $(this).attr('name').replace(/\s/g, '')
+  });
+
+    container.on("click", `.qtyplus`, e => {
+      //target sibiling of the target
+      const fieldName = $(e.target).siblings("input.qty")
+      let currentVal = parseInt(fieldName.val());
+      console.log(fieldName, currentVal)
       if (!isNaN(currentVal)) {
-          $(`input[name=${fieldName}]`).val(currentVal + 1);
+          fieldName.val(currentVal + 1);
       } else {
-          $(`input[name=${fieldName}]`).val(0);
+        console.log('else')
+          fieldName.val(0);
       }
-  });
-  $(".qtyminus").click(function(event) {
-      event.preventDefault();
-      fieldName = $(this).attr('field');
-      let currentVal = parseInt($(`input[name=${fieldName}]`).val());
+    });
+
+
+     container.on("click", `.qtyminus`, e => {
+      const fieldName = $(e.target).siblings("input.qty")
+      let currentVal = parseInt(fieldName.val());
+      console.log(fieldName, currentVal)
       if (!isNaN(currentVal) && currentVal > 0) {
-          $(`input[name=${fieldName}]`).val(currentVal - 1);
+          fieldName.val(currentVal - 1);
       } else {
-          $(`input[name=${fieldName}]`).val(0);
+          fieldName.val(0);
       }
   });
-  });
+
 };
 
 
