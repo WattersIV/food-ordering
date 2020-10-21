@@ -53,6 +53,11 @@ const confirmOrder = (order_id) => {
   return db.query(queryString)
 }
 
+const completeOrder = (order_id) => {
+
+}
+
+
 return {
 getOrders,
 getFoodItems,
