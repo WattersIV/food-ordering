@@ -15,15 +15,6 @@ module.exports = (db) => {
     })
   });
 
-  // router.get("/", (req, res) => {
-  //   getFoodItems()
-  //     .then(items => {
-  //       console.log("CHECKKKKKKKK")
-  //       console.log(items);
-  //       res.render("order", {items, page: "order"})
-  //   })
-  // })
-
   return router;
 
 };

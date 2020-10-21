@@ -4,7 +4,6 @@ const app        = express();
 app.set("view engine", "ejs");
 
 
-
 module.exports = (db) => {
   return router.post("/", function (req, res) {
     const queryList = [req.body.name, req.body.email, req.body.phone, req.body.address, req.body.postal_code];
