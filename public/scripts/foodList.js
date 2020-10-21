@@ -10,11 +10,9 @@ const addFoodElement = (name, price) => {
     <td id="food-name">${newName}</td>
     <td id="food-price">${price}</td>
     <td id="food-quantity">
-      <form  id='${newName}' method='POST' action='#'>
         <input type='button' value='-' id='${newName}-minus' class='qtyminus' field='quantity' />
         <input type='text' name='${newName}-quantity' value='1' class='qty' />
         <input type='button' value='+' id='${newName}-plus' class='qtyplus' field='quantity' />
-      </form>
     </td>
   </tr>
   `;
@@ -38,7 +36,6 @@ const appendFoodToList = () => {
       if (!isNaN(currentVal)) {
           fieldName.val(currentVal + 1);
       } else {
-        console.log('else')
           fieldName.val(0);
       }
     });

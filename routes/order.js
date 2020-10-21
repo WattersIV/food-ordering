@@ -16,6 +16,8 @@ module.exports = (db) => {
   });
 
   router.post("/:id/confirm", (req, res) => {
+
+    console.log(req.body)
     const order_id = req.session.cart.cart_id
     const queryString = `
     UPDATE orders
