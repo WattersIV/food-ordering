@@ -51,10 +51,25 @@ const confirmOrder = (order_id) => {
   RETURNING *;
   `;
   return db.query(queryString)
-}
+};
 
 const completeOrder = (order_id) => {
+  const queryString = `
+  UPDATE orders
+  SET order_completed = TRUE
+  WHERE id = ${order_id}
+  RETURNING *;
+  `;
+  return db.query(queryString)
+};
 
+const createFoodCart = (queryParams) => {
+  const queryString = `
+  INSERT INTO food_carts (order_id, food_id, quantity)
+  VALUES ($1, $2, $3)
+  RETURNING *;
+  `;
+  return db.query(queryString, queryParams).then(resolve => resolve.rows);
 }
 
 
@@ -64,7 +79,9 @@ getFoodItems,
 getFoodItemsById,
 updateMenuItem,
 deleteFoodItem,
-confirmOrder
+confirmOrder,
+completeOrder,
+createFoodCart
 };
 
 }
