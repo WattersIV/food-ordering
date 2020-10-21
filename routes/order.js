@@ -17,7 +17,7 @@ module.exports = (db) => {
 
   router.post("/:id/confirm", (req, res) => {
 
-    console.log(req.body)
+    console.log(Object.keys(req.body))
     const order_id = req.session.cart.cart_id
     const queryString = `
     UPDATE orders
@@ -26,6 +26,12 @@ module.exports = (db) => {
     RETURNING *;
     `;
     db.query(queryString)
+    //    .then(() => {
+    //   db.query(`
+    //   SELECT *
+    //   FROM foods
+    //   WHERE name LIKE "%${}%"    `)
+    //  })
     // .then(() => {
     //   db.query(`
     //   INSERT INTO food_carts (order_id, food_id, quantity)

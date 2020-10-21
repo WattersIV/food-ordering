@@ -7,11 +7,11 @@ const addFoodElement = (name, price) => {
   const newName = name.replace(/\s/g, '')
   const foodItem = `
   <tr>
-    <td id="food-name">${newName}</td>
+    <td id="food-name">${name}</td>
     <td id="food-price">${price}</td>
     <td id="food-quantity">
         <input type='button' value='-' id='${newName}-minus' class='qtyminus' field='quantity' />
-        <input type='text' name='${newName}-quantity' value='1' class='qty' />
+        <input type='text' name='${name}' value='1' class='qty' />
         <input type='button' value='+' id='${newName}-plus' class='qtyplus' field='quantity' />
     </td>
   </tr>
@@ -32,7 +32,6 @@ const appendFoodToList = () => {
       //target sibiling of the target
       const fieldName = $(e.target).siblings("input.qty")
       let currentVal = parseInt(fieldName.val());
-      console.log(fieldName, currentVal)
       if (!isNaN(currentVal)) {
           fieldName.val(currentVal + 1);
       } else {
@@ -44,7 +43,6 @@ const appendFoodToList = () => {
      container.on("click", `.qtyminus`, e => {
       const fieldName = $(e.target).siblings("input.qty")
       let currentVal = parseInt(fieldName.val());
-      console.log(fieldName, currentVal)
       if (!isNaN(currentVal) && currentVal > 0) {
           fieldName.val(currentVal - 1);
       } else {
