@@ -14,7 +14,7 @@ return client.messages.create({body, from, to})
 
 const sendTextToAdmin = (order_id) => {
 
-  const adminNumber = process.env.adminNumber
+  const adminNumber = process.env.adminNumber;
 
   let msg = `
   You have received an order!
@@ -25,6 +25,7 @@ const sendTextToAdmin = (order_id) => {
   return sendText(msg, adminNumber)
 
 }
+
 
 module.exports = {
   sendText,

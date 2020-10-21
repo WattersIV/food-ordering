@@ -73,6 +73,16 @@ const createFoodCart = (queryParams) => {
   return db.query(queryString, queryParams).then(resolve => resolve.rows);
 }
 
+const getPhoneNumberById = (order_id) => {
+  const queryString = `
+  SELECT users.phone
+  FROM orders
+  JOIN users ON user_id = users.id
+  where orders.id = ${order_id} AND order_completed = FALSE;
+  `
+  return db.query(queryString).then(resolve => resolve.rows)
+};
+
 
 return {
 getOrders,
@@ -82,7 +92,8 @@ updateMenuItem,
 deleteFoodItem,
 confirmOrder,
 completeOrder,
-createFoodCart
+createFoodCart,
+getPhoneNumberById,
 };
 
 }
