@@ -1,5 +1,5 @@
 require('dotenv').config({path: "../twilio.env"});
-const sendMessage = (body, to) => {
+const sendTexttoCustomer = (body, to) => {
 
 const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
@@ -9,7 +9,22 @@ const client = require('twilio')(accountSid, authToken);
 return client.messages.create({body, from, to})};
 
 
-sendMessage("hello world", "4388664160").then(response => console.log(response.body));
+const sendTextToAdmin = (order_id) => {
 
+  const adminNumber = process.env.adminNumber
+
+  let msg = `You have received an order!
+  Please check the admin side and confirm the order.
+  Order id is: ${order_id}
+  `;
+
+  sendTexttoCustomer(msg, adminNumber)
+
+}
+
+module.exports = {
+  sendTexttoCustomer,
+  sendTextToAdmin
+};
 
 

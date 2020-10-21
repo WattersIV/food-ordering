@@ -1,5 +1,6 @@
 $(document).ready(function(){
  appendFoodToList();
+ totalCostCalulator();
 });
 
 const addFoodElement = (name, price) => {
@@ -30,6 +31,7 @@ const appendFoodToList = () => {
   $(".add-menu-btn").click(function (evt) {
     container.append(addFoodElement(evt.target.parentElement.children[1].textContent, evt.target.parentElement.children[2].textContent))
     nam = $(this).attr('name').replace(/\s/g, '')
+    total(evt);
   });
 
     container.on("click", `.qtyplus`, e => {
@@ -39,6 +41,7 @@ const appendFoodToList = () => {
       console.log(fieldName, currentVal)
       if (!isNaN(currentVal)) {
           fieldName.val(currentVal + 1);
+          total(e);
       } else {
         console.log('else')
           fieldName.val(0);
@@ -52,6 +55,7 @@ const appendFoodToList = () => {
       console.log(fieldName, currentVal)
       if (!isNaN(currentVal) && currentVal > 0) {
           fieldName.val(currentVal - 1);
+          total(e);
       } else {
           fieldName.val(0);
       }
@@ -59,4 +63,25 @@ const appendFoodToList = () => {
 
 };
 
+ const total = function() {
+    const orderList = $("input.qty");
+    let total = 0;
+    for (const order of orderList) {
+      const price = Number($("#food-price").text());
+      const quantity =  Number($(order).val());
+      total += price * quantity;
+    }
+    $("#total-price").text(`$ ${total}`);
+  };
+
+const totalCostCalulator = function(event) {
+  $(".qtyplus").on("click", function () {
+    console.log("plus btn clicked!");
+    total(event);
+  });
+  $(".qtyminus").on("click", function (event) {
+    console.log("minus btn clicked!");
+    total(event);
+  });
+};
 
