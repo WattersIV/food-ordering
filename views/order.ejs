@@ -50,12 +50,10 @@
             <tbody id="order-container">
             </tbody>
           </table>
-            <p>Total Price: </p>
-            <form method="POST" action="<%= data.cart.cart_id %>/confirm" type="submit">
-              <button>Confirmation</button>
-            </form>
             <p>Total Price: <span id="total-price"></span></p>
-            <button>Confirmation</button>
+            <form method="POST" action="<%= data.cart.cart_id %>/confirm" type="submit">
+              <button class="confirmation-btn">Confirmation</button>
+            </form>
         <section id="order-list section">
         </section>
       </div>
