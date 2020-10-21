@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+// const {sendTextToAdmin} = require("../helpers/sms_helpers");
 
 module.exports = ({getFoodItems, confirmOrder}) => {
 
@@ -15,7 +16,6 @@ module.exports = ({getFoodItems, confirmOrder}) => {
 
   router.post("/:id/confirm", (req, res) => {
     const order_id = req.session.cart.cart_id
-
     confirmOrder(order_id)
     .then(() => {
       console.log('HERE!')
@@ -23,8 +23,5 @@ module.exports = ({getFoodItems, confirmOrder}) => {
     })
   })
 
-
-
   return router;
-
 };
