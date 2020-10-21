@@ -24,6 +24,11 @@ module.exports = (db) => {
     RETURNING *;
     `;
     db.query(queryString)
+    // .then(() => {
+    //   db.query(`
+    //   INSERT INTO food_carts (order_id, food_id, quantity)
+    //   VALUES()`)
+    // })
     .then(() => {
       console.log('HERE!')
       res.render("thank-you", {data: req.session})
