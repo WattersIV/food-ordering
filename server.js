@@ -55,7 +55,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/', mainRoutes(db));
 app.use("/admin", adminRoutes(databaseHelpers));
-app.use("/order", orderRoutes(db));
+app.use("/order", orderRoutes(databaseHelpers));
 
 // Home page
 // Warning: avoid creating more routes in this file!
