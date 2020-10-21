@@ -2,7 +2,8 @@ module.exports = (db) => {
 
 const getOrders = () => {
   const queryString = `
-  SELECT id from orders;
+  SELECT id from orders
+  WHERE order_completed = false AND order_processed = false;
   `;
   return db.query(queryString).then(resolve => resolve.rows)
 };
@@ -42,12 +43,28 @@ const deleteFoodItem = (food_id) => {
   return db.query(queryString).then(console.log("successfully deleted"))
 }
 
+const confirmOrder = (order_id) => {
+  const queryString = `
+  UPDATE orders
+  SET order_processed = TRUE
+  where id = ${order_id}
+  RETURNING *;
+  `;
+  return db.query(queryString)
+}
+
+const completeOrder = (order_id) => {
+
+}
+
+
 return {
 getOrders,
 getFoodItems,
 getFoodItemsById,
 updateMenuItem,
-deleteFoodItem
+deleteFoodItem,
+confirmOrder
 };
 
 }

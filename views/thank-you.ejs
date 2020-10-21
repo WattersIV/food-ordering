@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/thank-you.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/_footer.css" type="text/css" />
+  <link rel="stylesshet" href="/styles/_header.css" type="text/css"/>
+
+</head>
+<body>
+  <%- include('partials/_header') %>
+  <h1> THANK YOU <%= data.user.name %></h1>
+  <h3> Order #<%= data.cart.cart_id %></h3>
+</body>
+<%- include('partials/_footer') %>
+</html>
