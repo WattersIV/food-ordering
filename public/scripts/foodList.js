@@ -15,7 +15,7 @@ const addFoodElement = (name, price) => {
     <input id='minus-btn' type='button' value='-' class='qtyminus' field='quantity' />
     <input type='text' name='quantity' value='0' class='qty' />
     <input id='plus-btn' type='button' value='+' class='qtyplus' field='quantity' />
-    <div>
+    </div>
 </form>
     </td>
   </tr>

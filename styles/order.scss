@@ -50,22 +50,16 @@ body {
 }
 
 
-.menu-section {
+#menu-section {
   display: flex;
   flex-direction: row;
   margin: 1em;
-
-  display: grid;
-  grid-template-columns: max-content;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "item item item";
+  flex-wrap: wrap;
 
   .food-container {
-    grid-area: item;
+    list-style: none;
+    flex: 0 0 33.333333%;
   }
-
-
 }
 
 .food-picture {
