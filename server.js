@@ -1,5 +1,8 @@
 // load .env data into process.env
-require('dotenv').config();
+const dotENV = require('dotenv');
+dotENV.config({path: "./twilio.env"});
+dotENV.config({path: "./.env"})
+
 
 // Web server config
 const PORT          = process.env.PORT || 8080;

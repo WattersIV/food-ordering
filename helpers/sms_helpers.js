@@ -1,14 +1,15 @@
-require('dotenv').config({path: "../twilio.env"});
 
 const sendText = (body, to) => {
 
 const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
 const from = process.env.fromNumber;
-
 const client = require('twilio')(accountSid, authToken);
 
-return client.messages.create({body, from, to})};
+
+return client.messages.create({body, from, to})
+.then(response => console.log(response.body))
+};
 
 
 const sendTextToAdmin = (order_id) => {
@@ -21,15 +22,13 @@ const sendTextToAdmin = (order_id) => {
   Order ID is: ${order_id}
   `;
 
-  sendText(msg, adminNumber)
+  return sendText(msg, adminNumber)
 
 }
 
-sendTextToAdmin(45)
-
-// module.exports = {
-//   sendText,
-//   sendTextToAdmin
-// };
+module.exports = {
+  sendText,
+  sendTextToAdmin
+};
 
 

@@ -1,9 +1,9 @@
 const express = require('express');
 const router  = express.Router();
-// const {sendTextToAdmin} = require("../helpers/sms_helpers");
+const {sendTextToAdmin} = require("../helpers/sms_helpers")
+
 
 module.exports = ({getFoodItems, confirmOrder}) => {
-
 
   router.get("/:id", (req, res) => {
     getFoodItems()
@@ -12,12 +12,13 @@ module.exports = ({getFoodItems, confirmOrder}) => {
     })
   });
 
-  // change to a function
 
   router.post("/:id/confirm", (req, res) => {
     const order_id = req.session.cart.cart_id
+    // will need to create a cart first
     confirmOrder(order_id)
     .then(() => {
+      sendTextToAdmin(order_id);
       console.log('HERE!')
       res.render("thank-you", {data: req.session})
     })
