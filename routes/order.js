@@ -15,6 +15,14 @@ module.exports = (db) => {
     })
   });
 
+  router.get("/:id/confirm", (req, res) => {
+    res.render("thank-you", {data: req.session})
+  })
+
+
+
+
+
   return router;
 
 };
