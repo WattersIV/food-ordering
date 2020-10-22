@@ -7,7 +7,7 @@ $(document).ready(function(){
 const cart = [];
 
 const addFoodElement = (name, price, id) => {
-  //White space cant be in name
+
   const foodItem = `
   <tr id="${cart.length}">
     <td id="food-name">${name}</td>

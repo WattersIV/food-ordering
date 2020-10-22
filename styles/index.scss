@@ -7,43 +7,61 @@ body {
   align-items: center;
   font: 100% $font-stack;
   color: $primary-color;
-  background-color: #aaddbb9e;
+  background-color: #FFFFFF;
   height: 100vh;
+  align-content: space-between;
 
-  section{
-    background-color: lightblue;
+  .index-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
     width: 100%;
+    height: 800px;
+  }
+
+  .container {
+    margin-top: 15em;
+    margin-bottom: 5em;
+  }
+
+  .carousel-inner {
+    display: flex;
+    font-family: 'Philosopher', sans-serif;
+    color: #c79090;
   }
 
   .options {
     height: 10vh; //sets max height and width of the buttons
     width: 100%;
+    margin: 5em;
+    font-family: 'Philosopher', sans-serif;
+    font-weight: bold;
   }
 
     #takeout{
       width: 25vw;
+      border: white;
+      color: white;
       background-color: #93c193;
+      font-size: 2em;
+      &:hover {
+        box-shadow: 10px 10px #729b72;
+        text-shadow: 2px 2px 0px #729b72;
+      }
     }
 
     #delivery{
       width: 25vw;
+      border: white;
+      color: white;
       background-color: #93c193;
+      font-size: 2em;
+      &:hover {
+        box-shadow: 10px 10px #729b72;
+        text-shadow: 2px 2px 0px #729b72;
+      }
     }
-
-  h1 {
-    display: flex;
-    color: $primary-color;
-    font-size: 3.5em;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-
-  .text-box {
-    height: 2rem;
-    display: flex;
-
-  }
 
   table, th, td {
     border-collapse: collapse;
@@ -64,15 +82,45 @@ body {
 
 .delivery-reg {
   flex-direction: column;
-  align-items: space-evenly;
   display:none;
 }
 
 form {
   display: flex;
-  background-color: #fff5bb8a;
+  justify-content: center;
+  background-color: #ffffff;
   width: 90vw;
+  font-family: 'Lora', serif;
+  font-size: 25px;
 }
+
+  .registration-title {
+    display: flex;
+    font-size: 35px;
+    justify-content: center;
+  }
+
+  .registerbtn {
+    width: 5vw;
+    border: white;
+    color: white;
+    background-color: #93c193;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    &:hover {
+      box-shadow: 10px 10px #729b72;
+      }
+  }
+
+  .text-box {
+    resize: none;
+    border: none;
+    border-bottom: 4px solid #93c193;
+    background-color: #abc5ab96;
+    margin-bottom: 10px;
+  }
 
 .options {
   display: flex;

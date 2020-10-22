@@ -1,5 +1,24 @@
 $font-stack:    Helvetica, sans-serif;
 
 header {
-  color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: white;
+  padding-right: 3em;
+  font-family: 'Lora', serif;
+  width: 100vw;
+  background-color: #93c193;
+  position: fixed;
+  top: 0;
+  margin-bottom: 3em;
+}
+
+nav {
+  width: 100vw;
+  padding: 1.5em;
+}
+
+.narbar-default {
+  background-color: #93c193;
 }
