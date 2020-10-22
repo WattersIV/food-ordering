@@ -11,7 +11,6 @@ body {
   height: 100vh;
   align-content: space-between;
 
-
   .index-section{
     display: flex;
     flex-direction: column;
@@ -21,40 +20,22 @@ body {
     height: 800px;
   }
 
-    .welcome-msg {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 1em;
-    }
-
-  h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    font-size: 7em;
-    font-family: 'Lora', serif;
-    font-weight: bolder;
-    color: #F7C1C1;
-    background: #ffffff;
-    text-shadow: 7px 2px 0px #7A7A7A;
+  .container {
+    margin-top: 15em;
+    margin-bottom: 5em;
   }
 
-  .details {
+  .carousel-inner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Lora', serif;
-    font-size: 2em;
+    font-family: 'Philosopher', sans-serif;
+    color: #c79090;
   }
 
   .options {
     height: 10vh; //sets max height and width of the buttons
     width: 100%;
     margin: 5em;
-    font-family: 'Lobster', cursive;
+    font-family: 'Philosopher', sans-serif;
     font-weight: bold;
   }
 
@@ -109,7 +90,6 @@ form {
   justify-content: center;
   background-color: #ffffff;
   width: 90vw;
-  padding: 2em;
   font-family: 'Lora', serif;
   font-size: 25px;
 }
