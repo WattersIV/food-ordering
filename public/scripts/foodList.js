@@ -14,7 +14,7 @@ const addFoodElement = (name, price, id) => {
     <td id="food-price">$${price}</td>
     <td id="food-quantity">
         <input type='button' value='-' id='${id}-minus' class='qtyminus' field='quantity' />
-        <input type='text' name='' value='1' class='qty' />
+        <input type='text' name='${name}' value='1' class='qty' />
         <input type='button' value='+' id='${id}-plus' class='qtyplus' field='quantity' />
     </td>
   </tr>

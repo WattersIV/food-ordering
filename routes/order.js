@@ -17,7 +17,8 @@ module.exports = (db) => {
 
   router.post("/:id/confirm", async (req, res) => {
     // Array of foods being ordered
-    const keys = Object.keys(req.body)
+    console.log(req.body)
+    const keys = Object.keys(req.body) //Gets food names
     const order_id = req.session.cart.cart_id
     const queryString = `
     UPDATE orders
