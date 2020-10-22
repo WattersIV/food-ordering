@@ -13,6 +13,14 @@
   <%- include('partials/_header') %>
   <h1> THANK YOU <%= data.user.name %></h1>
   <h3> Order #<%= data.cart.cart_id %></h3>
+  <h5> Order total: $<%= price %></h5>
+
+  <% for (const food of cart) { %>
+  <div>
+    <p> <%= JSON.stringify(food.title) %> </p>
+    <p> <%= JSON.stringify(food.quantity) %> </p>
+  </div>
+  <% } %>
 </body>
 <%- include('partials/_footer') %>
 </html>

@@ -37,10 +37,10 @@
         </section>
       </div>
       <div class="order-summary">
-        <h3 class="h3-title"> Your Order </h3>
-        <section id="order-list-section">
-
-          <table class="order-list">
+        <h3> Your Order </h3>
+          <section id="order-list-section">
+            <form method="POST" action="<%= data.cart.cart_id %>/confirm" >
+            <table class="order-list">
             <thead>
               <tr>
                 <th scope="col">Item</th>
@@ -50,14 +50,12 @@
             </thead>
             <tbody id="order-container">
             </tbody>
-          </table>
+            </table>
             <p>Total Price: <span id="total-price"></span></p>
-            <form method="POST" action="<%= data.cart.cart_id %>/confirm" type="submit">
-              <button class="confirmation-btn">Confirmation</button>
-            </form>
-        <section id="order-list section">
-        </section>
-      </div>
+                  <button type="submit">Confirmation</button>
+                </form>
+            </section>
+        </div>
     </main>
     </div>
   </body>
