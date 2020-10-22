@@ -27,9 +27,6 @@ module.exports = (db) => {
     RETURNING *;
     `;
     return db.query(queryString)
-    .then(() => {
-      sendTextToAdmin(order_id);
-    })
       .then(async () => {
         //console.log('keys', keys) // Whatever they had in the cart
         const asyncRes = await Promise.all(keys.map(async (key) => {

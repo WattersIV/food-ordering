@@ -12,15 +12,20 @@ return client.messages.create({body, from, to})
 };
 
 
-const sendTextToAdmin = (order_id) => {
+const sendTextToAdmin = (cartInfo, order_id) => {
 
   const adminNumber = process.env.adminNumber;
 
   let msg = `
   You have received an order!
   Please check the admin side and confirm the order.
-  Order ID is: ${order_id}
+  Order ID is: ${order_id}.
+  The Order is:
   `;
+
+  for (const order of cartInfo) {
+
+  }
 
   return sendText(msg, adminNumber)
 
