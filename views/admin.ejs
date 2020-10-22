@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Main Page</title>
+<<<<<<< HEAD
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script type="text/javascript" src="/scripts/completeOrders.js"></script>
 
+=======
+>>>>>>> master
 </head>
 <body>
   <%- include('partials/_admin_header') %>
@@ -20,11 +23,18 @@
   </article>
   <article class="confirmation of order">
     <h2>Confirm Order</h2>
+    <form method="POST" action="/admin/confirm">
     <span>Order ID:</span><br>
-    <input id="orderID" type="number" min="0" step="1"><br>
+    <input name="orderID" type="number" min="0" step="1"><br>
     <span>In how many minutes will the order be ready?</span><br>
+<<<<<<< HEAD
     <input type="text"><br>
     <button id="confirmation" type="submit" class="btn btn-primary">Submit</button>
+=======
+    <input name="minutes" type="number"><br>
+    <button id="confirmation" type="submit">Submit</button>
+  </form>
+>>>>>>> master
   </article>
 </main>
 </body>

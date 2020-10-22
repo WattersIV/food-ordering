@@ -1,9 +1,10 @@
 const express = require('express');
 const router  = express.Router();
+const {sendText} = require("../helpers/sms_helpers")
 
 
 
-module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem, deleteFoodItem}) => {
+module.exports = ({getOrders, getFoodItems, getFoodItemsById, updateMenuItem, deleteFoodItem, completeOrder, getPhoneNumberById}) => {
 
 router.get("/login", (req, res) => {
   res.render("admin_login")
@@ -66,6 +67,22 @@ router.post("/edit_menu/:id/edit", (req, res) => {
   .then(res.redirect("/admin/edit_menu"))
   }
 })
+
+router.post("/confirm", (req, res) => {
+  const ID = req.body.orderID;
+  const minutes = req.body.minutes;
+
+  const message = `
+  Hi! Your order has been confirmed! It will be ready in ${minutes} minutes!
+  `
+  if (req.session.isAuthenticated) {
+  getPhoneNumberById(ID)
+  .then(resolve => {sendText(message, resolve[0].phone)})
+  completeOrder(ID)
+  .then(() => {
+    res.redirect("/admin/main_page")})
+  }
+});
 
 return router
 }
