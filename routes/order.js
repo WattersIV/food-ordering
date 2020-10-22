@@ -27,6 +27,9 @@ module.exports = (db) => {
     RETURNING *;
     `;
     return db.query(queryString)
+    // .then(() => {
+    //   sendTextToAdmin(order_id);
+    // })
       .then(async () => {
         //console.log('keys', keys) // Whatever they had in the cart
         const asyncRes = await Promise.all(keys.map(async (key) => {
@@ -61,7 +64,6 @@ module.exports = (db) => {
         JOIN food_carts ON foods.id = food_id
         WHERE order_id=${order_id};`)
           .then((cart) => {
-            console.log("this is the cart:", cart);
             const cartPrices = [];
             //For each item in the cart price * quantity then store in array
             cart.rows.map((item) => {
@@ -79,18 +81,3 @@ module.exports = (db) => {
   })
   return router;
 }
-
-
-//   router.post("/:id/confirm", (req, res) => {
-//     const order_id = req.session.cart.cart_id
-//     // will need to create a cart first
-//     confirmOrder(order_id)
-// //     .then(() => {
-//       sendTextToAdmin(order_id);
-//       console.log('HERE!')
-//       res.render("thank-you", {data: req.session})
-//     })
-//   })
-
-//   return router;
-// };
