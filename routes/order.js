@@ -55,21 +55,25 @@ module.exports = (db) => {
            })
         }));
         return db.query(`
-        SELECT title, quantity
+        SELECT title, quantity, price_cents
         FROM foods
         JOIN food_carts ON foods.id = food_id
         WHERE order_id=${order_id};`)
           .then((cart) => {
-            //console.log('cart.rows', cart.rows)
+            const cartPrices = [];
+            //For each item in the cart price * quantity then store in array
+            cart.rows.map((item) => {
+              cartPrices.push(item.quantity * item.price_cents)
+              })
+
+            //Define and call order total accumulator with array created above
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            const finalPrice  = cartPrices.reduce(reducer) / 100;
+
             //render with cookie obj which has user and cart info
-            res.render("thank-you", {data: req.session, cart: cart.rows})
+            res.render("thank-you", {data: req.session, cart: cart.rows, price: finalPrice})
           })
       })
   })
   return router;
 }
-
-
-
-
-
