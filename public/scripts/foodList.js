@@ -60,10 +60,13 @@ const appendFoodToList = () => {
       let currentVal = parseInt(fieldName.val());
       const foodID = $(e.target).closest("tr").attr("id")
       changeQuantity(foodID, false);
-      if (!isNaN(currentVal) && currentVal > 0) {
+      if (!isNaN(currentVal) && currentVal > 1) {
           fieldName.val(currentVal - 1);
       } else {
-          fieldName.val(0);
+          const indexOfFoodId = cart.indexOf(foodID);
+          cart.splice(indexOfFoodId, 1)
+          console.log("this is the cart right now: ",cart)
+          $(e.target).closest("tr").remove()
       }
   });
 };
@@ -77,7 +80,7 @@ const appendFoodToList = () => {
     }, 0);
 
     if (total > 0) {
-    $("#total-price").text(`$ ${total}`);
+    $("#total-price").text(`$ ${Math.round(total * 100)/ 100}`);
     } else {
       $("#total-price").text(`$ 0`);
     }
