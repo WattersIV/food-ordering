@@ -24,7 +24,7 @@ body {
       display: flex;
       flex-direction: row;
       width: 100vw;
-      .order-summary {
+      #order-list-section {
         align-self: flex-start;
         font-family: 'Lora', serif;
         position: sticky;
