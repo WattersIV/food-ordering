@@ -11,7 +11,7 @@ const getOrders = () => {
 const getFoodItems = () => {
   const queryString = `
   SELECT * FROM foods
-  ORDER BY title;
+  ORDER BY type;
   `;
   return db.query(queryString).then(resolve => resolve.rows)
 };
