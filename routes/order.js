@@ -61,6 +61,7 @@ module.exports = (db) => {
         JOIN food_carts ON foods.id = food_id
         WHERE order_id=${order_id};`)
           .then((cart) => {
+            console.log("this is the cart:", cart);
             const cartPrices = [];
             //For each item in the cart price * quantity then store in array
             cart.rows.map((item) => {
