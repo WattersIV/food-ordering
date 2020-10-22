@@ -30,7 +30,7 @@
             <article class="food-container">
               <img class="food-picture" src="<%= food.food_picture_url %>"/>
               <p class="food-name"><%= food.title %></p>
-              <p class="food-price"><%= food.price_cents %></p>
+              <p class="food-price"><%= food.price_cents / 100%></p>
                 <button name="<%= food.title %>" type="button" class="add-menu-btn"  value=<%= food.id %>> Add to Order </button>
             </article>
           <% } %>
