@@ -6,13 +6,13 @@
   <title>Document</title>
   <link rel="stylesheet" href="/styles/thank-you.css" type="text/css" />
   <link rel="stylesheet" href="/styles/_footer.css" type="text/css" />
-  <link rel="stylesshet" href="/styles/_header.css" type="text/css"/>
+  <link rel="stylesheet" href="/styles/_header.css" type="text/css" />
 
 </head>
   <body>
     <%- include('partials/_header') %>
-    <h1> Thank you <%= data.user.name %>!</h1>
-    <h3> Order #<%= data.cart.cart_id %></h3>
+    <h1> Thank you for your order, <%= data.user.name %></h1>
+    <h3> Your order # is: <%= data.cart.cart_id %></h3>
     <h4> Order total: $<%= price %></h4>
     <main>
       <% for (const food of cart) { %>
@@ -21,6 +21,6 @@
       </div>
       <% } %>
     </main>
+    <%- include('partials/_footer') %>
   </body>
-<%- include('partials/_footer') %>
 </html>
