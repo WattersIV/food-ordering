@@ -1,10 +1,7 @@
-$font-stack:    Helvetica, sans-serif;
-
 body{
   display: flex;
-  font: 100% $font-stack;
   flex-direction: column;
-
+  font-family: 'Lora', serif;
   h1,h3,h4 {
     align-self: center;
   }
