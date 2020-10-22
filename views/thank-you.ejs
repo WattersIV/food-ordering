@@ -9,10 +9,18 @@
   <link rel="stylesshet" href="/styles/_header.css" type="text/css"/>
 
 </head>
-<body>
-  <%- include('partials/_header') %>
-  <h1> THANK YOU <%= data.user.name %></h1>
-  <h3> Order #<%= data.cart.cart_id %></h3>
-</body>
+  <body>
+    <%- include('partials/_header') %>
+    <h1> Thank you <%= data.user.name %>!</h1>
+    <h3> Order #<%= data.cart.cart_id %></h3>
+    <h4> Order total: $<%= price %></h4>
+    <main>
+      <% for (const food of cart) { %>
+      <div>
+        <p> <%= JSON.stringify(food.quantity) %>  <%= JSON.stringify(food.title) %> </p>
+      </div>
+      <% } %>
+    </main>
+  </body>
 <%- include('partials/_footer') %>
 </html>

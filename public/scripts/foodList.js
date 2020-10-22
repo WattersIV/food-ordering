@@ -8,19 +8,14 @@ const cart = [];
 
 const addFoodElement = (name, price) => {
   //White space cant be in name
-  const newName = name.replace(/\s/g, '')
   const foodItem = `
   <tr id="${cart.length}">
-    <td id="food-name">${newName}</td>
-    <td id="food-price">${price}</td>
+    <td id="food-name">${name}</td>
+    <td id="food-price">$${price}</td>
     <td id="food-quantity">
-    <form id='myform' method='POST' action='#'>
-    <div class='qty-div'>
-    <input id='minus-btn' type='button' value='-' class='qtyminus' field='quantity' />
-    <input type='text' name='quantity' value='1' class='qty' />
-    <input id='plus-btn' type='button' value='+' class='qtyplus' field='quantity' />
-    </div>
-</form>
+        <input type='button' value='-' id='${name}-minus' class='qtyminus' field='quantity' />
+        <input type='text' name='${name}' value='1' class='qty' />
+        <input type='button' value='+' id='${name}-plus' class='qtyplus' field='quantity' />
     </td>
   </tr>
   `;
@@ -52,11 +47,9 @@ const appendFoodToList = () => {
       const foodID = $(e.target).closest("tr").attr("id")
       changeQuantity(foodID, true);
       let currentVal = parseInt(fieldName.val());
-      console.log(fieldName, currentVal)
       if (!isNaN(currentVal)) {
           fieldName.val(currentVal + 1);
       } else {
-        console.log('else')
           fieldName.val(0);
       }
     });
@@ -80,11 +73,14 @@ const appendFoodToList = () => {
   const calculateTotal = function() {
 
     const total = cart.reduce((accumulator, value) => {
-      console.log("what is value?", value)
-      console.log("Check Value: ", parseInt(value.price), accumulator);
-      return accumulator += parseInt(value.price) * value.quantity;
+      return accumulator += parseFloat(value.price) * value.quantity;
     }, 0);
+
+    if (total > 0) {
     $("#total-price").text(`$ ${total}`);
+    } else {
+      $("#total-price").text(`$ 0`);
+    }
   };
 
     const changeQuantity = (foodId, typeOfCalculation) => {

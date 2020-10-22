@@ -58,7 +58,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/', mainRoutes(db));
 app.use("/admin", adminRoutes(databaseHelpers));
-app.use("/order", orderRoutes(databaseHelpers));
+app.use("/order", orderRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -71,11 +71,6 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-
-app.get("/order/:id", (req, res) => {
-  console.log(req.session.cart.cart_id)
-  res.render("order", {data: req.session});
-});
 
 app.get("/test", (req, res) => {
   res.render("confirmation");

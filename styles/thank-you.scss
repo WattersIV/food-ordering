@@ -1,5 +1,20 @@
+$font-stack:    Helvetica, sans-serif;
 
-body {
+body{
   display: flex;
+  font: 100% $font-stack;
   flex-direction: column;
+
+  h1,h3,h4 {
+    align-self: center;
+  }
+  main{
+  background-color: rgb(226, 226, 226);
+
+  p {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
+
