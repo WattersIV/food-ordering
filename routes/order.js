@@ -2,7 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const {sendTextToAdmin} = require("../helpers/sms_helpers")
 
-
 module.exports = (db) => {
 
   router.get("/:id", (req, res) => {
@@ -15,7 +14,6 @@ module.exports = (db) => {
       res.render("order", {data: req.session, items});
     })
   });
-
   router.post("/:id/confirm", async (req, res) => {
     // Array of foods being ordered
     const keys = Object.keys(req.body)
@@ -31,7 +29,6 @@ module.exports = (db) => {
       sendTextToAdmin(order_id);
     })
       .then(async () => {
-        //console.log('keys', keys) // Whatever they had in the cart
         const asyncRes = await Promise.all(keys.map(async (key) => {
           let sql =`
           SELECT id
@@ -42,8 +39,6 @@ module.exports = (db) => {
           sql+= str;
           const results = await db.query(sql)
            .then((results)=> {
-              //console.log('results.rows[0]', results.rows[0].id) // food id
-              //console.log('key', key) // Food name
                foods = {
                 title: key,
                 id: results.rows[0].id,
@@ -52,7 +47,6 @@ module.exports = (db) => {
               return foods  //returning each foods obj one at a time
            })
            .then(async (foodObj) => {
-             //console.log('Food OBJ',foodObj)
              await db.query(`
              INSERT INTO food_carts (food_id, quantity, order_id)
              VALUES (${foodObj.id}, ${foodObj.quantity}, ${order_id})`)
@@ -81,18 +75,3 @@ module.exports = (db) => {
   })
   return router;
 }
-
-
-//   router.post("/:id/confirm", (req, res) => {
-//     const order_id = req.session.cart.cart_id
-//     // will need to create a cart first
-//     confirmOrder(order_id)
-// //     .then(() => {
-//       sendTextToAdmin(order_id);
-//       console.log('HERE!')
-//       res.render("thank-you", {data: req.session})
-//     })
-//   })
-
-//   return router;
-// };

@@ -1,4 +1,3 @@
-
 const sendText = (body, to) => {
 
 const accountSid = process.env.accountSid;
