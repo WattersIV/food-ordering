@@ -25,19 +25,9 @@ module.exports = (db) => {
       where id = ${order_id}
       RETURNING *;
       `;
-    let foods = {}
     db.query(queryString)
       .then(async () => {
-        console.log('keys', keys) // [ 'Spaghetti Bolonese', 'Frutti di Mare', 'Carbonara' ]
-        // Loop through all food names and get id from the DB
-
-        // https://stackoverflow.com/questions/36094865/how-to-do-promise-all-for-array-of-array-of-promises
-        // https://stackoverflow.com/questions/39452083/using-promise-function-inside-javascript-array-map
-        // https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/
-
-        // Possible option if you want to use a loop still.
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
-
+        //console.log('keys', keys) // Whatever they had in the cart
         const asyncRes = await Promise.all(keys.map(async (key) => {
           let sql =`
           SELECT id
@@ -46,51 +36,30 @@ module.exports = (db) => {
           let str= ''
           str += `WHERE title='${key}' ;`
           sql+= str;
-          console.log("str", str);
           const results = await db.query(sql)
-          console.log("results", results.rows[0].id);
-          // const foody = (results) => {
-          //     console.log('data.rows[0].id', data.rows[0].id) // 1
-          //     foods[keys[i]] = {
-          //       title: keys[i],
-          //       id: data.rows[0].id,
-          //       quantity: Number(req.body[keys[i]])
-          //     }
-          //     console.log('LINE 46', foods) //OBJ
-          //     if (i === keys.length - 1) {
-          //       return foods;
-          //     }
-          // }
-          //  sleep(10);
-          // return foody
+           .then((results)=> {
+              //console.log('results.rows[0]', results.rows[0].id) // food id
+              //console.log('key', key) // Food name
+               foods = {
+                title: key,
+                id: results.rows[0].id,
+                quantity: Number(req.body[key])
+              }
+              return foods  //returning each foods obj one at a time
+           })
+           .then(async (foodObj) => {
+             //console.log('Food OBJ',foodObj)
+             await db.query(`
+             INSERT INTO food_carts (food_id, quantity, order_id)
+             VALUES (${foodObj.id}, ${foodObj.quantity}, ${order_id})`)
+           })
         }));
+        //render with cookie obj which has user and cart info
+        res.render("thank-you", {data: req.session})
       })
-        // for (let i = 0; i < keys.length; i++) {
   })
   return router;
 }
-
-          // await function call
-          // await function call
-          // await function call
-          // Promise.all([array of promises])
-        // }
-        //console.log('ORDER HERE', foods)
-          // return foods
-      // })//.then(() => console.log('LINE 55', foods)) //UNDEF
-
-
-
-    // .then(() => {
-    //   db.query(`
-    //   INSERT INTO food_carts (order_id, food_id, quantity)
-    //   VALUES()`)
-    // })
-  //   .then((result) => {
-  //     console.log('000000000000000',result)
-  //     res.render("thank-you", {data: req.session})
-  //   })
-  //   .catch((err) => console.log(err))
 
 
 
