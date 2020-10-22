@@ -24,7 +24,12 @@ body {
       display: flex;
       flex-direction: row;
       width: 100vw;
-
+      .order-summary {
+        align-self: flex-start;
+        font-family: 'Lora', serif;
+        position: sticky;
+        top: 0;
+      }
       .menu {
         margin: 1em;
         width: 60vw;
