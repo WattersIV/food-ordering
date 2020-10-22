@@ -33,7 +33,6 @@ const appendFoodToList = () => {
   $(".add-menu-btn").click(function (evt) {
     const foodTitle = evt.target.parentElement.children[1].textContent;
     const foodPrice = evt.target.parentElement.children[2].textContent;
-    console.log("Food Title/Price: ", foodTitle, foodPrice)
     cart.push({
       "title": foodTitle,
       "price": foodPrice,
@@ -78,21 +77,17 @@ const appendFoodToList = () => {
   const calculateTotal = function() {
 
     const total = cart.reduce((accumulator, value) => {
-      console.log("what is value?", value)
-      console.log("Check Value: ", parseInt(value.price), accumulator);
       return accumulator += parseInt(value.price) * value.quantity;
     }, 0);
-    $("#total-price").text(`$ ${total}`);
+      $("#total-price").text(`$ ${total}`);
   };
 
     const changeQuantity = (foodId, typeOfCalculation) => {
-      console.log(cart);
-      console.log()
       const foodItem = cart[foodId - 1]
-    if (typeOfCalculation === true) {
-      foodItem.quantity += 1;
-    } else {
-      foodItem.quantity -= 1;
+      if (typeOfCalculation === true) {
+        foodItem.quantity += 1;
+      } else {
+        foodItem.quantity -= 1;
     }
     calculateTotal()
   }
