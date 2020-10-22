@@ -1,12 +1,9 @@
 const express = require('express');
 const router  = express.Router();
+const {sendTextToAdmin} = require("../helpers/sms_helpers")
 
-module.exports = (db) => {
 
-  const getFoodItems = () => {
-    const queryString = `SELECT * FROM foods;`;
-      return db.query(queryString).then(response => response.rows);
-  };
+module.exports = ({getFoodItems, confirmOrder}) => {
 
   router.get("/:id", (req, res) => {
     getFoodItems()
@@ -77,3 +74,17 @@ module.exports = (db) => {
   })
   return router;
 }
+
+//   router.post("/:id/confirm", (req, res) => {
+//     const order_id = req.session.cart.cart_id
+//     // will need to create a cart first
+//     confirmOrder(order_id)
+//     .then(() => {
+//       sendTextToAdmin(order_id);
+//       console.log('HERE!')
+//       res.render("thank-you", {data: req.session})
+//     })
+//   })
+
+//   return router;
+// };
