@@ -3,10 +3,14 @@ const router  = express.Router();
 const {sendTextToAdmin} = require("../helpers/sms_helpers")
 
 
-module.exports = ({getFoodItems, confirmOrder}) => {
+module.exports = (db) => {
 
   router.get("/:id", (req, res) => {
-    getFoodItems()
+    const queryString = `
+    SELECT * FROM foods
+    ORDER BY title;
+    `;
+    return db.query(queryString).then(resolve => resolve.rows)
     .then(items => {
       res.render("order", {data: req.session, items});
     })
@@ -16,7 +20,13 @@ module.exports = ({getFoodItems, confirmOrder}) => {
     // Array of foods being ordered
     const keys = Object.keys(req.body)
     const order_id = req.session.cart.cart_id
-    confirmOrder(order_id)
+    const queryString = `
+    UPDATE orders
+    SET order_processed = TRUE
+    where id = ${order_id}
+    RETURNING *;
+    `;
+    return db.query(queryString)
     .then(() => {
       sendTextToAdmin(order_id);
     })
