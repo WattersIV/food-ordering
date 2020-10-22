@@ -12,7 +12,7 @@ const addFoodElement = (name, price) => {
   const foodItem = `
   <tr id="${cart.length}">
     <td id="food-name">${newName}</td>
-    <td id="food-price">${price}</td>
+    <td id="food-price">$${price}</td>
     <td id="food-quantity">
         <input type='button' value='-' id='${newName}-minus' class='qtyminus' field='quantity' />
         <input type='text' name='${name}' value='1' class='qty' />
@@ -76,9 +76,14 @@ const appendFoodToList = () => {
     const total = cart.reduce((accumulator, value) => {
       console.log("what is value?", value)
       console.log("Check Value: ", parseInt(value.price), accumulator);
-      return accumulator += parseInt(value.price) * value.quantity;
+      return accumulator += parseFloat(value.price, 10) * value.quantity;
     }, 0);
+
+    if (total > 0) {
     $("#total-price").text(`$ ${total}`);
+    } else {
+      $("#total-price").text(`$ 0`);
+    }
   };
 
     const changeQuantity = (foodId, typeOfCalculation) => {

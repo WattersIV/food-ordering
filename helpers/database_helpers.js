@@ -8,14 +8,6 @@ const getOrders = () => {
   return db.query(queryString).then(resolve => resolve.rows)
 };
 
-const getFoodItems = () => {
-  const queryString = `
-  SELECT * FROM foods
-  ORDER BY title;
-  `;
-  return db.query(queryString).then(resolve => resolve.rows)
-};
-
 const getFoodItemsById = (food_id) => {
   const queryString = `
   SELECT * FROM foods
@@ -43,16 +35,6 @@ const deleteFoodItem = (food_id) => {
   return db.query(queryString).then(console.log("successfully deleted"))
 }
 
-const confirmOrder = (order_id) => {
-  const queryString = `
-  UPDATE orders
-  SET order_processed = TRUE
-  where id = ${order_id}
-  RETURNING *;
-  `;
-  return db.query(queryString)
-};
-
 const completeOrder = (order_id) => {
   const queryString = `
   UPDATE orders
@@ -63,15 +45,6 @@ const completeOrder = (order_id) => {
   console.log("success")
   return db.query(queryString)
 };
-
-const createFoodCart = (queryParams) => {
-  const queryString = `
-  INSERT INTO food_carts (order_id, food_id, quantity)
-  VALUES ($1, $2, $3)
-  RETURNING *;
-  `;
-  return db.query(queryString, queryParams).then(resolve => resolve.rows);
-}
 
 const getPhoneNumberById = (order_id) => {
   const queryString = `
@@ -86,13 +59,10 @@ const getPhoneNumberById = (order_id) => {
 
 return {
 getOrders,
-getFoodItems,
 getFoodItemsById,
 updateMenuItem,
 deleteFoodItem,
-confirmOrder,
 completeOrder,
-createFoodCart,
 getPhoneNumberById,
 };
 
