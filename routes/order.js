@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router  = express.Router();
 const {sendTextToAdmin} = require("../helpers/sms_helpers")
@@ -8,16 +7,18 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     const queryString = `
     SELECT * FROM foods
-    ORDER BY title;
+    ORDER BY type;
     `;
     return db.query(queryString).then(resolve => resolve.rows)
     .then(items => {
       res.render("order", {data: req.session, items});
     })
   });
+
   router.post("/:id/confirm", async (req, res) => {
     // Array of foods being ordered
-    const keys = Object.keys(req.body)
+    console.log(req.body)
+    const keys = Object.keys(req.body) //Gets food names
     const order_id = req.session.cart.cart_id
     const queryString = `
     UPDATE orders
