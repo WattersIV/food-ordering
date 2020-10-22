@@ -12,7 +12,7 @@ const takeoutButtonsHandler = () => {
     deliveryClicked === true ? deliveryClicked = false : null;
     takeoutClicked = true;
     diableButton();
-    if ($(".takeout-reg").is(':visible')){
+    if ($(".take-out-visible").is(':visible')){
     $(".takeout-reg").slideUp("slow");
     } else {
     $(".takeout-reg").slideDown("slow");
@@ -25,7 +25,7 @@ const deliveryButtonHandler = () => {
     takeoutClicked === true ? takeoutClicked = false : null;
     deliveryClicked = true;
     diableButton();
-    if ($(".delivery-reg").is(':visible')){
+    if ($(".delivery-visible").is(':visible')){
     $(".delivery-reg").slideUp("slow");
     } else {
     $(".delivery-reg").slideDown("slow");
