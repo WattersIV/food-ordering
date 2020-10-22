@@ -16,13 +16,10 @@ module.exports = ({getFoodItems, confirmOrder}) => {
     // Array of foods being ordered
     const keys = Object.keys(req.body)
     const order_id = req.session.cart.cart_id
-    const queryString = `
-      UPDATE orders
-      SET order_processed = TRUE
-      where id = ${order_id}
-      RETURNING *;
-      `;
-    db.query(queryString)
+    confirmOrder(order_id)
+    .then(() => {
+      sendTextToAdmin(order_id);
+    })
       .then(async () => {
         //console.log('keys', keys) // Whatever they had in the cart
         const asyncRes = await Promise.all(keys.map(async (key) => {
@@ -75,11 +72,12 @@ module.exports = ({getFoodItems, confirmOrder}) => {
   return router;
 }
 
+
 //   router.post("/:id/confirm", (req, res) => {
 //     const order_id = req.session.cart.cart_id
 //     // will need to create a cart first
 //     confirmOrder(order_id)
-//     .then(() => {
+// //     .then(() => {
 //       sendTextToAdmin(order_id);
 //       console.log('HERE!')
 //       res.render("thank-you", {data: req.session})
