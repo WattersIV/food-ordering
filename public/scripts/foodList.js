@@ -76,7 +76,7 @@ const appendFoodToList = () => {
     const total = cart.reduce((accumulator, value) => {
       console.log("what is value?", value)
       console.log("Check Value: ", parseInt(value.price), accumulator);
-      return accumulator += parseFloat(value.price, 10) * value.quantity;
+      return accumulator += parseFloat(value.price) * value.quantity;
     }, 0);
 
     if (total > 0) {
