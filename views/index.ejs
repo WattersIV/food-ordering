@@ -71,9 +71,8 @@
       <button id="delivery">Delivery</button>
     </div>
   </body>
-
+  <div class="takeout-form">
     <form method="POST" action="/">
-      <div class="take-out-visible">
       <div class="takeout-reg">
         <h3 class="registration-title">Registration for Takeout</h3>
         <p>Please fill in the required information below.</p>
@@ -93,10 +92,10 @@
         </div>
         <button type="submit" class="registerbtn">Register</button>
       </div>
-      </div>
     </form>
+  </div>
+  <div class="delivery-form">
     <form method="POST" action="/">
-      <div class="delivery-visible">
       <div class="delivery-reg">
         <h3 class="registration-title">Registration for Delivery</h3>
         <p>Please fill in the required information below.</p>
@@ -125,9 +124,8 @@
         </div>
         <button type="submit" class="registerbtn">Register</button>
       </div>
-      </div>
     </form>
-
+  </div>
     <!-- Footer Partial ---->
     <%- include('partials/_footer') %>
   </body>
