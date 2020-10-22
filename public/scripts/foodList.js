@@ -28,23 +28,12 @@ const checkIfIncludesFoodName = (foodCart, foodName) => {
     return false
   };
   for (const food of foodCart) {
-    console.log("Food-Object: ", food)
-    console.log("Food title: ", food.title)
     if (food.title === foodName) {
-      console.log("is loop working")
       return true;
     }
   }
   return false;
 };
-
-const findIndexofCartFood = (foodCart, foodName) => {
-  for (const food of foodCart) {
-    if (food.title === foodName) {
-      return foodCart.indexOf(food)
-    }
-  }
-}
 
 const appendFoodToList = () => {
 
@@ -52,13 +41,8 @@ const appendFoodToList = () => {
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
     const foodID = $(evt.target).data('foodid')
-    console.log("Food id is: ", foodID)
     const foodTitle = evt.target.parentElement.children[1].textContent;
     const foodPrice = evt.target.parentElement.children[2].textContent;
-    foodDataId = findIndexofCartFood(cart, foodTitle);
-    console.log("Current Cart: ", cart);
-    console.log("What is the food title being passed through? ", foodTitle)
-    console.log("Result of function: ", checkIfIncludesFoodName(cart, foodTitle));
     if (!checkIfIncludesFoodName(cart, foodTitle)) {
     cart.push({
       "title": foodTitle,
