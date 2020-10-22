@@ -54,8 +54,16 @@ module.exports = (db) => {
              VALUES (${foodObj.id}, ${foodObj.quantity}, ${order_id})`)
            })
         }));
-        //render with cookie obj which has user and cart info
-        res.render("thank-you", {data: req.session})
+        return db.query(`
+        SELECT title, quantity
+        FROM foods
+        JOIN food_carts ON foods.id = food_id
+        WHERE order_id=${order_id};`)
+          .then((cart) => {
+            //console.log('cart.rows', cart.rows)
+            //render with cookie obj which has user and cart info
+            res.render("thank-you", {data: req.session, cart: cart.rows})
+          })
       })
   })
   return router;
