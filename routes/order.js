@@ -81,3 +81,18 @@ module.exports = (db) => {
   })
   return router;
 }
+
+
+//   router.post("/:id/confirm", (req, res) => {
+//     const order_id = req.session.cart.cart_id
+//     // will need to create a cart first
+//     confirmOrder(order_id)
+// //     .then(() => {
+//       sendTextToAdmin(order_id);
+//       console.log('HERE!')
+//       res.render("thank-you", {data: req.session})
+//     })
+//   })
+
+//   return router;
+// };
