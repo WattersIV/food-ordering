@@ -18,26 +18,29 @@ body {
     align-content: space-around;
     width: 100%;
     height: 800px;
-  }
+    position: relative;
+    z-index: 0;
 
-  .container {
-    margin-top: 15em;
-    margin-bottom: 5em;
-  }
+    .container {
+      margin-top: 15em;
+      margin-bottom: 5em;
 
-  .carousel-inner {
-    display: flex;
-    font-family: 'Philosopher', sans-serif;
-    color: #c79090;
+      .carousel-inner {
+        display: flex;
+        font-family: 'Philosopher', sans-serif;
+        color: #c79090;
+      }
+    }
   }
 
   .options {
+    display: flex;
+    justify-content: space-evenly;
     height: 10vh; //sets max height and width of the buttons
     width: 100%;
-    margin: 5em;
+    margin-top: 10em;
     font-family: 'Philosopher', sans-serif;
     font-weight: bold;
-  }
 
     #takeout{
       width: 25vw;
@@ -62,69 +65,67 @@ body {
         text-shadow: 2px 2px 0px #729b72;
       }
     }
-
-  table, th, td {
-    border-collapse: collapse;
   }
-  hr {                              // These remove black line between text fields
+
+  form {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 90vw;
+    font-family: 'Lora', serif;
+    font-size: 25px;
+    margin: 2em;
+
+    .takeout-reg {
+      flex-direction: column;
+      display: none;
+    }
+
+    .delivery-reg {
+      flex-direction: column;
+      display:none;
+    }
+
+    .registration-title {
+      display: flex;
+      font-size: 35px;
+      justify-content: center;
+    }
+
+    .registerbtn {
+      width: 5vw;
+      border: white;
+      color: white;
+      background-color: #93c193;
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      &:hover {
+        box-shadow: 10px 10px #729b72;
+        }
+    }
+
+    .text-box {
+      resize: none;
+      border: none;
+      border-bottom: 4px solid #93c193;
+      background-color: #abc5ab96;
+      margin-bottom: 10px;
+    }
+
+  }
+
+  hr {// These remove black line between text fields
     border:1px solid black;
     border-top: none;
     border-bottom: none;
-
   }
-
 }
 
-.takeout-reg {
-  flex-direction: column;
-  display: none;
-}
 
-.delivery-reg {
-  flex-direction: column;
-  display:none;
-}
 
-form {
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
-  width: 90vw;
-  font-family: 'Lora', serif;
-  font-size: 25px;
-}
 
-  .registration-title {
-    display: flex;
-    font-size: 35px;
-    justify-content: center;
-  }
 
-  .registerbtn {
-    width: 5vw;
-    border: white;
-    color: white;
-    background-color: #93c193;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 10px;
-    width: 100%;
-    &:hover {
-      box-shadow: 10px 10px #729b72;
-      }
-  }
-
-  .text-box {
-    resize: none;
-    border: none;
-    border-bottom: 4px solid #93c193;
-    background-color: #abc5ab96;
-    margin-bottom: 10px;
-  }
-
-.options {
-  display: flex;
-  justify-content: space-evenly;
-}
 
 
