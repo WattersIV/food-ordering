@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/styles/thank-you.css" type="text/css" />
   <link rel="stylesheet" href="/styles/_footer.css" type="text/css" />
   <link rel="stylesheet" href="/styles/_header.css" type="text/css" />
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
+
   <body>
+
     <%- include('partials/_header') %>
-    <h1> Thank you for your order, <%= data.user.name %></h1>
-    <h3> Your order # is: <%= data.cart.cart_id %></h3>
-    <h4> Order total: $<%= price %></h4>
+    <div class="thankyou-text">
+      <h1> Thank you for your order, <%= data.user.name %></h1>
+      <h3> Your order # is: <%= data.cart.cart_id %></h3>
+      <h4> Order total: $<%= price %></h4>
+    </div>
     <main>
       <% for (const food of cart) { %>
       <div>
