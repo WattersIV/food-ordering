@@ -6,16 +6,16 @@ $(document).ready(function(){
 
 const cart = [];
 
-const addFoodElement = (name, price) => {
+const addFoodElement = (name, price, id) => {
   //White space cant be in name
   const foodItem = `
   <tr id="${cart.length}">
     <td id="food-name">${name}</td>
     <td id="food-price">$${price}</td>
     <td id="food-quantity">
-        <input type='button' value='-' id='${name}-minus' class='qtyminus' field='quantity' />
-        <input type='text' name='${name}' value='1' class='qty' />
-        <input type='button' value='+' id='${name}-plus' class='qtyplus' field='quantity' />
+        <input type='button' value='-' id='${id}-minus' class='qtyminus' field='quantity' />
+        <input type='text' name='' value='1' class='qty' />
+        <input type='button' value='+' id='${id}-plus' class='qtyplus' field='quantity' />
     </td>
   </tr>
   `;
@@ -23,20 +23,54 @@ const addFoodElement = (name, price) => {
   return foodItem;
 }
 
+const checkIfIncludesFoodName = (foodCart, foodName) => {
+  if (foodCart.length === 0) {
+    return false
+  };
+  for (const food of foodCart) {
+    console.log("Food-Object: ", food)
+    console.log("Food title: ", food.title)
+    if (food.title === foodName) {
+      console.log("is loop working")
+      return true;
+    }
+  }
+  return false;
+};
+
+const findIndexofCartFood = (foodCart, foodName) => {
+  for (const food of foodCart) {
+    if (food.title === foodName) {
+      return foodCart.indexOf(food)
+    }
+  }
+}
+
 const appendFoodToList = () => {
 
   //Last thing staticly created in ejs
   const container = $("#order-container");
   $(".add-menu-btn").click(function (evt) {
+    const foodID = $(evt.target).data('foodid')
+    console.log("Food id is: ", foodID)
     const foodTitle = evt.target.parentElement.children[1].textContent;
     const foodPrice = evt.target.parentElement.children[2].textContent;
-    console.log("Food Title/Price: ", foodTitle, foodPrice)
+    foodDataId = findIndexofCartFood(cart, foodTitle);
+    console.log("Current Cart: ", cart);
+    console.log("What is the food title being passed through? ", foodTitle)
+    console.log("Result of function: ", checkIfIncludesFoodName(cart, foodTitle));
+    if (!checkIfIncludesFoodName(cart, foodTitle)) {
     cart.push({
       "title": foodTitle,
       "price": foodPrice,
       "quantity": 1
     });
-    container.append(addFoodElement(foodTitle, foodPrice))
+    container.append(addFoodElement(foodTitle, foodPrice, foodID));
+  } else {
+    $(`#${foodID}-plus`).click();
+  }
+
+
 
     calculateTotal(evt);
   });
@@ -87,8 +121,7 @@ const appendFoodToList = () => {
   };
 
     const changeQuantity = (foodId, typeOfCalculation) => {
-      console.log(cart);
-      console.log()
+
       const foodItem = cart[foodId - 1]
     if (typeOfCalculation === true) {
       foodItem.quantity += 1;
