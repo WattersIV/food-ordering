@@ -38,21 +38,21 @@
       </div>
       <div class="order-summary">
         <section id="order-list-section">
-            <h3> Your Order </h3>
-            <form method="POST" action="<%= data.cart.cart_id %>/confirm" >
+            <h3 class="h3-title"> Your Order </h3>
+            <form class="order-form" method="POST" action="<%= data.cart.cart_id %>/confirm" >
             <table class="order-list">
             <thead>
-              <tr>
-                <th scope="col">Item</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantitiy</th>
+              <tr class="table-row">
+                <th class="table-col" scope="col">Item</th>
+                <th class="table-col" scope="col">Price</th>
+                <th class="table-col" scope="col">Quantity</th>
               </tr>
             </thead>
             <tbody id="order-container">
             </tbody>
             </table>
             <p>Total Price: <span id="total-price"></span></p>
-                  <button type="submit">Confirmation</button>
+                <button class="confirmation-btn" type="submit">Confirmation</button>
                 </form>
             </section>
         </div>

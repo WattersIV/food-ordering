@@ -7,10 +7,9 @@ body {
   width: 100vw;
   align-content: space-between;
 
-  h2 {
+  h3 {
     display: flex;
     justify-content: flex-end;
-    padding-right: 3em;
     font-family: 'Lora', serif;
   }
 
@@ -24,29 +23,34 @@ body {
       display: flex;
       flex-direction: row;
       width: 100vw;
+
       #order-list-section {
         align-self: flex-start;
         font-family: 'Lora', serif;
         position: sticky;
         top: 0;
       }
+
       .menu {
         margin: 1em;
         width: 60vw;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         .h3-title {
         display: flex;
         justify-content: center;
         font-size: 3em;
         font-family: 'Lora', serif;
         }
+
         #menu-section {
           display: flex;
           flex-direction: row;
           margin: 1em;
           flex-wrap: wrap;
+
           .food-container {
             display: flex;
             flex-direction: column;
@@ -54,6 +58,27 @@ body {
             list-style: none;
             flex: 0 0 33.333333%;
             margin-bottom: 1em;
+
+            .food-picture {
+              width: 200px;
+              height: 200px;
+            }
+
+            .add-menu-btn {
+                font-family: 'Lora', serif;
+                border: white;
+                color: white;
+                background-color: #93c193;
+                font-size: 20px;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 10vw;
+
+                &:hover {
+                  box-shadow: 7px 7px #729b72;
+                  }
+              }
           }
         }
       }
@@ -61,28 +86,6 @@ body {
   }
 
 
-
-
-
-.food-picture {
-  width: 200px;
-  height: 200px;
-}
-
-.add-menu-btn {
-    font-family: 'Lora', serif;
-    border: white;
-    color: white;
-    background-color: #93c193;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 10vw;
-    &:hover {
-      box-shadow: 7px 7px #729b72;
-      }
-  }
 
   .confirmation-btn {
     font-family: 'Lora', serif;
@@ -101,64 +104,96 @@ body {
 
   .order-summary {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     margin: 1em;
     width: 40vw;
-  }
 
-  #order-list-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    #order-list-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
 
-  #food-name {
-    font-weight: bolder;
-  }
+        .h3-title {
+          display: flex;
+          justify-content: center;
+          font-size: 3em;
+          font-family: 'Lora', serif;
+        }
+        .order-form {
+          justify-content: center;
+          width: 100%;
+          .order-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          font-size: 1.7em;
+          .table-row{
+            display: flex;
+            flex-direction: row;
+            .table-col {
+              margin: 1.2em;
+            }
+          }
 
-  .qty-div {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-  }
+        }
 
-  #minus-btn {
-    width: 2vw;
-    border: white;
-    color: white;
-    background-color: #93c193;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    &:hover {
-      color: black;
-      }
-  }
+        p {
+          font-size: 1.5em;
+        }
+        }
 
-  #plus-btn {
-    width: 2vw;
-    border: white;
-    color: white;
-    background-color: #93c193;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    &:hover {
-      color: black;
-      }
-  }
 
-  .qty {
-      resize: none;
-      border: none;
-      border-bottom: 4px solid #93c193;
-      background-color: #abc5ab96;
-      margin-bottom: 10px;
-      width: 1.0cm;
-      height: 1.2cm;
-      justify-content: center;
-    }
+        #order-container {
+          display: flex;
+          flex-direction: column;
+          #food-name {
+            font-weight: bolder;
+          }
+
+          .qtyminus {
+            width: 2vw;
+            border: white;
+            color: white;
+            background-color: #93c193;
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            &:hover {
+              color: black;
+              }
+          }
+
+          .qtyplus {
+            width: 2vw;
+            border: white;
+            color: white;
+            background-color: #93c193;
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            &:hover {
+              color: black;
+              }
+          }
+
+          .qty {
+              resize: none;
+              border: none;
+              border-bottom: 4px solid #93c193;
+              background-color: #abc5ab96;
+              margin-bottom: 10px;
+              width: 1.0cm;
+              height: 1.2cm;
+              justify-content: center;
+            }
+                }
+              }
+
+          }
+
 }
 
