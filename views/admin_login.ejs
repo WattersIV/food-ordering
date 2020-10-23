@@ -3,23 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/styles/_header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/admin_login.css" type="text/css" />
   <title>Login Page</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!-- Bootstrap CSS
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
 
 </head>
 <body>
   <%- include('partials/_header') %>
   <main style="margin: 1em;">
   <form method=POST action="/admin/login">
-  <h1>Login Page!</h1>
-  <p>Please log-in to access admin</p>
-  <p>email</p>
-  <input type="email" name="email"><br><br>
-  <p>password</p>
-  <input type="password" name="password"><br><br>
-  <button class="btn btn-primary" type="submit">login</button>
+    <h1>Admin Login Page</h1>
+      <p>Please log-in to access admin</p>
+      <p>email</p>
+    <input type="email" name="email"><br><br>
+       <p>password</p>
+    <input type="password" name="password"><br><br>
+       <button class="admin-login-btn" type="submit">login</button>
   </form>
 </main>
 <!-- Bootstrap JS -->
