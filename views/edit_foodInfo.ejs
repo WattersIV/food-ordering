@@ -4,15 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit information</title>
+  <link rel="stylesheet" href="/styles/_adminheader.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/edit_info.css" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 </head>
 <body>
   <%- include('partials/_admin_header') %>
-  <form method="POST" action="/admin/edit_menu/<%=item.id%>/edit">
+  <form id="edit" method="POST" action="/admin/edit_menu/<%=item.id%>/edit">
+  <span>Food Title</span>
   <input name="title" type="text" value="<%=item.title%>">
+  <span>Picture</span>
   <input name="picture" type="text" value="<%=item.food_picture_url%>">
+  <span>Price</span>
   <input name="price" type="number" value="<%=item.price_cents%>">
+  <span>Type</span>
   <input name="type" type="text" value="<%=item.type%>">
-  <button type="submit">Submit Changes!</button>
+  <button id="editButton" type="submit" class="btn btn-primary">Submit Changes!</button>
   </form>
 </body>
 </html>

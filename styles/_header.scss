@@ -1,5 +1,44 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack:'Lora', sans-serif;
 
 header {
-  color: black;
+  color: white;
+  padding-right: 3em;
+  font-family: 'Lora', serif;
+  width: 100vw;
+  background-color: #93c193;
+  position: fixed;
+  top: 0;
+  margin-bottom: 3em;
+   z-index: 2000;
+
+  .navbar {
+
+    display: flex;
+    justify-content: space-between;
+
+    .homepage-logo {
+      font-family: 'Philosopher', serif;
+      font-size: 35px;
+      font-weight: bold;
+      width: 100vw;
+      padding: 0.2em;
+      padding-left: 1em;
+
+    }
+
+    div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100vw;
+    padding: 1em;
+    font-size: 1.5em;
+    .homepage {
+      margin-right: 3em;
+    }
+    }
+
+  }
+
 }
+

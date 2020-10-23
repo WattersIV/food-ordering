@@ -1,0 +1,23 @@
+body {
+  background-color: #93c193;
+};
+
+.orders-not-yet-confirmed {
+  margin: solid black;
+};
+
+
+.orders {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 10px;
+};
+
+.confirmation-of-order {
+  margin: 10px;
+}
+
+#confirmation {
+  margin: 10px;
+}

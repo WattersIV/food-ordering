@@ -12,10 +12,10 @@ const takeoutButtonsHandler = () => {
     deliveryClicked === true ? deliveryClicked = false : null;
     takeoutClicked = true;
     diableButton();
-    if ($(".takeout-reg").is(':visible')){
-    $(".takeout-reg").slideUp("slow");
+    if ($(".takeout-form").is(':visible')){
+    $(".takeout-form").slideUp("slow");
     } else {
-    $(".takeout-reg").slideDown("slow");
+    $(".takeout-form").slideDown("slow");
     }
   });
 }
@@ -25,10 +25,10 @@ const deliveryButtonHandler = () => {
     takeoutClicked === true ? takeoutClicked = false : null;
     deliveryClicked = true;
     diableButton();
-    if ($(".delivery-reg").is(':visible')){
-    $(".delivery-reg").slideUp("slow");
+    if ($(".delivery-form").is(':visible')){
+    $(".delivery-form").slideUp("slow");
     } else {
-    $(".delivery-reg").slideDown("slow");
+    $(".delivery-form").slideDown("slow");
     }
   });
 }
@@ -37,11 +37,11 @@ const diableButton = () => {
   if (deliveryClicked === true) {
     $("#delivery").prop('disabled', true);
     $("#takeout").prop('disabled', false);
-    $(".takeout-reg").slideUp("slow");
+    $(".takeout-form").slideUp("slow");
   }
   else if (takeoutClicked === true) {
     $("#takeout").prop('disabled', true);
     $("#delivery").prop('disabled', false);
-    $(".delivery-reg").slideUp("slow");
+    $(".delivery-form").slideUp("slow");
   }
 }
