@@ -8,6 +8,14 @@ const getOrders = () => {
   return db.query(queryString).then(resolve => resolve.rows)
 };
 
+const getFoodItems = () => {
+  const queryString = `
+  SELECT * FROM foods
+  ORDER BY title;
+  `;
+  return db.query(queryString).then(resolve => resolve.rows)
+};
+
 const getFoodItemsById = (food_id) => {
   const queryString = `
   SELECT * FROM foods
@@ -59,6 +67,7 @@ const getPhoneNumberById = (order_id) => {
 
 return {
 getOrders,
+getFoodItems,
 getFoodItemsById,
 updateMenuItem,
 deleteFoodItem,

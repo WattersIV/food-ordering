@@ -2,39 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/_adminheader.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Main Page</title>
-<<<<<<< HEAD
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script type="text/javascript" src="/scripts/completeOrders.js"></script>
 
-=======
->>>>>>> master
 </head>
 <body>
   <%- include('partials/_admin_header') %>
-<main class="Order/Menu">
-  <article class= "orders not yet confirmed">
+<main class="orders">
+  <article class= "orders-not-yet-confirmed">
     <h2>Orders to be confirmed</h2>
     <% for (const order of orders) { %>
     <span>Order ID: <%= order.id %></span><br>
     <% } %>
   </article>
-  <article class="confirmation of order">
+  <article class="confirmation-of-order">
     <h2>Confirm Order</h2>
     <form method="POST" action="/admin/confirm">
     <span>Order ID:</span><br>
     <input name="orderID" type="number" min="0" step="1"><br>
     <span>In how many minutes will the order be ready?</span><br>
-<<<<<<< HEAD
     <input type="text"><br>
     <button id="confirmation" type="submit" class="btn btn-primary">Submit</button>
-=======
-    <input name="minutes" type="number"><br>
-    <button id="confirmation" type="submit">Submit</button>
-  </form>
->>>>>>> master
   </article>
 </main>
 </body>
