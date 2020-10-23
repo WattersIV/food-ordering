@@ -121,10 +121,9 @@ body {
       background-color: #abc5ab96;
       margin-bottom: 10px;
     }
-
   }
-
-    hr {// These remove black line between text fields
+    // These remove black line between text fields
+    hr {
       border:1px solid black;
       border-top: none;
       border-bottom: none;
