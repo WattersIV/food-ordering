@@ -1,18 +1,39 @@
 nav {
+  padding-right: 3em;
+  font-family: 'Lora', serif;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  width: 100vw;
+  position: fixed;
+  top: 0;
   background-color: #93c193;
-  display: flex;
+
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2em;
+    padding: 1em;
+  }
 
   #links {
-    color: white;
-  }
-
-  #logoutsection {
-    display: flex;
-    justify-content: flex-end;
-
-    #logout {
-      height: 30px;
-      margin-bottom: 10px;
+    font-size: 20px;
+    a {
+      color: white;
+      padding-right: 2em;
     }
   }
+
+  .logout {
+    font-family: 'Lora', serif;
+    height: 30px;
+    margin-bottom: 10px;
+    width: 8vw;
+    border: white;
+    color: #93c193;
+    background-color: white;
+    font-size: 20px;
+  }
+
 }
