@@ -1,12 +1,24 @@
 a {
   color: white;
+  padding-top: 20px;
+}
+
+a:visited {
+  color: white;
 }
 
 #logout {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#logoutsection {
   display: flex;
   justify-content: flex-end;
 }
 
+
 nav {
   background-color: #93c193;
+  display: flex;
 }

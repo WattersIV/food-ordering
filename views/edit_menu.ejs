@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/_adminheader.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/edit_menu.css" type="text/css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Menu</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
   <%- include('partials/_admin_header') %>
@@ -18,13 +21,13 @@
           <th scope="col">Delete</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="editTable">
         <% for (const food of items) { %>
           <tr>
             <td><%= food.title %></td>
             <td><%= food.price_cents %></td>
-            <td><input type="button" onclick="location.href='http://localhost:8080/admin/edit_menu/<%=food.id%>/edit';" value="Edit" /></td>
-            <td><form method="POST" action="/admin/edit_menu/<%=food.id%>/delete"><button type="submit" value=>Delete</button></form></td>
+            <td><input type="button" onclick="location.href='http://localhost:8080/admin/edit_menu/<%=food.id%>/edit';" class="btn btn-primary" value="Edit" /></td>
+            <td><form method="POST" action="/admin/edit_menu/<%=food.id%>/delete"><button type="submit" class="btn btn-primary">Delete</button></form></td>
           </tr>
           <% } %>
       </tbody>
